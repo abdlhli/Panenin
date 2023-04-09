@@ -31,4 +31,5 @@ Admin
 ## Developers
 
 - [@Abdullah Ali](https://github.com/abdlhli)
-
+- [@Firmansyah Fikriawan](https://github.com/fmnsh19)
+- [@Zulfianti](https://github.com/viviashilah14)
