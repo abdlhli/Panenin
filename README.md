@@ -1,4 +1,6 @@
 
+![image.png](https://github.com/abdlhli/Panenin/blob/master/public/assets/images/Panenin..png)
+
 # Website Panenin.
 
 Panenin adalah sebuah platform eCommerce yang didedikasikan untuk menjual hasil panen pertanian dari mahasiswa Politeknik Negeri Jember. Dalam platform ini, para mahasiswa Politeknik Negeri Jember akan menjual produk-produk pertanian yang mereka hasilkan langsung dari kebun atau lahan pertanian mereka sendiri.
