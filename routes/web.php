@@ -23,3 +23,9 @@ Route::post('/login', [AuthController::class, 'login']);
 
 Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', [AuthController::class, 'register']);
+
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('dashboard', function () {
+        return view('admin.dashboard');
+    })->name('dashboard');
+});

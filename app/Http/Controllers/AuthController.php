@@ -30,13 +30,7 @@ class AuthController extends Controller
         }
 
         Auth::login($akun);
-
-        return redirect('/home');
-    }
-
-    public function showRegistrationForm()
-    {
-        return view('auth.register');
+        return redirect()->route('admin.dashboard');
     }
 
     public function register(Request $request)
