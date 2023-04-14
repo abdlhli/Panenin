@@ -16,7 +16,12 @@ class Authenticate extends Middleware
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return $next($request);
+                $user = Auth::guard($guard)->user();
+                if ($user->id_hak_akses == 1) {
+                    return $next($request);
+                } else {
+                    return redirect('/login')->with('warning-hak-akses', 'Anda tidak memiliki akses ke halaman admin.');
+                }
             }
         }
 

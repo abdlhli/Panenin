@@ -19697,3 +19697,12 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 	
 /******/ })()
 ;
+
+// Initialization for ES Users
+import {
+  Sidenav,
+  Ripple,
+  initTE,
+} from "tw-elements";
+
+initTE({ Sidenav, Ripple });

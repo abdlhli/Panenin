@@ -33,6 +33,11 @@ class AuthController extends Controller
         return redirect()->route('admin.dashboard');
     }
 
+    public function RegisterPage()
+    {
+        return view('auth.register');
+    }
+
     public function register(Request $request)
     {
         // validasi data

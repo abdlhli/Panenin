@@ -21,14 +21,8 @@ Route::get('/', function () {
 Route::get('/login', [AuthController::class, 'LoginPage'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 
-Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register');
+Route::get('/register', [AuthController::class, 'RegisterPage'])->name('register');
 Route::post('/register', [AuthController::class, 'register']);
-
-// Route::prefix('admin')->name('admin.')->group(function () {
-//     Route::get('dashboard', function () {
-//         return view('admin.dashboard');
-//     })->name('dashboard');
-// });
 
 Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::get('dashboard', function () {

@@ -14,17 +14,6 @@
         <div class="px-3 py-3 lg:px-5 lg:pl-3">
             <div class="flex items-center justify-between">
                 <div class="flex items-center justify-start">
-                    <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar"
-                        aria-controls="logo-sidebar" type="button"
-                        class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
-                        <span class="sr-only">Open sidebar</span>
-                        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path clip-rule="evenodd" fill-rule="evenodd"
-                                d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z">
-                            </path>
-                        </svg>
-                    </button>
                     <a class="flex ml-11 md:mr-24">
                         <img src="/assets/images/LogoPanenin.png" class="h-6 mr-3" alt="Panenin Logo" />
                     </a>
@@ -32,47 +21,8 @@
                 <div class="flex items-center">
                     <div class="flex items-center ml-3">
                         <div>
-                            <button type="button"
-                                class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
-                                aria-expanded="false" data-dropdown-toggle="dropdown-user">
-                                <span class="sr-only">Open user menu</span>
-                                <img class="w-8 h-8 rounded-full"
-                                    src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-                                    alt="user photo">
-                            </button>
-                        </div>
-                        <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600"
-                            id="dropdown-user">
-                            <div class="px-4 py-3" role="none">
-                                <p class="text-sm text-gray-900 dark:text-white" role="none">
-                                    Neil Sims
-                                </p>
-                                <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none">
-                                    neil.sims@flowbite.com
-                                </p>
-                            </div>
-                            <ul class="py-1" role="none">
-                                <li>
-                                    <a href="#"
-                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                                        role="menuitem">Dashboard</a>
-                                </li>
-                                <li>
-                                    <a href="#"
-                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                                        role="menuitem">Settings</a>
-                                </li>
-                                <li>
-                                    <a href="#"
-                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                                        role="menuitem">Earnings</a>
-                                </li>
-                                <li>
-                                    <a href="#"
-                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                                        role="menuitem">Sign out</a>
-                                </li>
-                            </ul>
+                            <img class="w-8 h-8 rounded-full"
+                                src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="user photo">
                         </div>
                     </div>
                 </div>
@@ -83,102 +33,121 @@
     <aside id="logo-sidebar"
         class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
         aria-label="Sidebar">
-        <div class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
-            <ul class="space-y-2 font-medium">
-                <li>
-                    <a href="#"
-                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-                        <svg aria-hidden="true"
-                            class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                            fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
-                            <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
-                        </svg>
-                        <span class="ml-3">Dashboard</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#"
-                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-                        <svg aria-hidden="true"
-                            class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                            fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z">
-                            </path>
-                        </svg>
-                        <span class="flex-1 ml-3 whitespace-nowrap">Kanban</span>
+        <div>
+            <ul class="relative m-0 list-none px-[0.2rem]">
+                <li class="relative">
+                    <a class="group flex h-12 cursor-pointer items-center truncate rounded-[5px] px-6 py-4 text-[0.875rem] text-gray-700 outline-none transition duration-300 ease-linear  hover:bg-green-400/10 hover:text-green-600 hover:outline-none focus:bg-green-400/10 focus:text-green-600 focus:outline-none active:bg-green-400/10 active:text-green-600 active:outline-none data-[te-sidenav-state-active]:text-green-600 data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
+                        href="#!">
                         <span
-                            class="inline-flex items-center justify-center px-2 ml-3 text-sm font-medium text-gray-800 bg-gray-200 rounded-full dark:bg-gray-700 dark:text-gray-300">Pro</span>
+                            class="mr-4 [&amp;>svg]:h-3.5 [&amp;>svg]:w-3.5 [&amp;>svg]:fill-gray-700 [&amp;>svg]:transition [&amp;>svg]:duration-300 [&amp;>svg]:ease-linear group-hover:[&amp;>svg]:fill-green-600 group-focus:[&amp;>svg]:fill-green-600 group-active:[&amp;>svg]:fill-green-600 group-[te-sidenav-state-active]:[&amp;>svg]:fill-green-600 motion-reduce:[&amp;>svg]:transition-none dark:[&amp;>svg]:fill-gray-300 dark:group-hover:[&amp;>svg]:fill-gray-300 ">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="#7B7B7B" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect x="3" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="14" width="7" height="7"></rect>
+                                <rect x="3" y="14" width="7" height="7"></rect>
+                            </svg>
+                        </span>
+                        <span>Dashboard</span>
                     </a>
                 </li>
-                <li>
-                    <a href="#"
-                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-                        <svg aria-hidden="true"
-                            class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                            fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M8.707 7.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l2-2a1 1 0 00-1.414-1.414L11 7.586V3a1 1 0 10-2 0v4.586l-.293-.293z">
-                            </path>
-                            <path
-                                d="M3 5a2 2 0 012-2h1a1 1 0 010 2H5v7h2l1 2h4l1-2h2V5h-1a1 1 0 110-2h1a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z">
-                            </path>
-                        </svg>
-                        <span class="flex-1 ml-3 whitespace-nowrap">Inbox</span>
+                <li class="relative">
+                    <a class="group flex h-12 cursor-pointer items-center truncate rounded-[5px] px-6 py-4 text-[0.875rem] text-gray-700 outline-none transition duration-300 ease-linear  hover:bg-green-400/10 hover:text-green-600 hover:outline-none focus:bg-green-400/10 focus:text-green-600 focus:outline-none active:bg-green-400/10 active:text-green-600 active:outline-none data-[te-sidenav-state-active]:text-green-600 data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
+                        href="#!">
                         <span
-                            class="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">3</span>
+                            class="mr-4 [&amp;>svg]:h-3.5 [&amp;>svg]:w-3.5 [&amp;>svg]:fill-gray-700 [&amp;>svg]:transition [&amp;>svg]:duration-300 [&amp;>svg]:ease-linear group-hover:[&amp;>svg]:fill-green-600 group-focus:[&amp;>svg]:fill-green-600 group-active:[&amp;>svg]:fill-green-600 group-[te-sidenav-state-active]:[&amp;>svg]:fill-green-600 motion-reduce:[&amp;>svg]:transition-none dark:[&amp;>svg]:fill-gray-300 dark:group-hover:[&amp;>svg]:fill-gray-300 ">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M6 2L3 6v14c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2V6l-3-4H6zM3.8 6h16.4M16 10a4 4 0 1 1-8 0" />
+                            </svg>
+                        </span>
+                        <span>Management Product</span>
                     </a>
                 </li>
-                <li>
-                    <a href="#"
-                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-                        <svg aria-hidden="true"
-                            class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                            fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                        <span class="flex-1 ml-3 whitespace-nowrap">Users</span>
+                <li class="relative">
+                    <a class="group flex h-12 cursor-pointer items-center truncate rounded-[5px] px-6 py-4 text-[0.875rem] text-gray-700 outline-none transition duration-300 ease-linear hover:bg-green-400/10 hover:text-green-600 hover:outline-none focus:bg-green-400/10 focus:text-green-600 focus:outline-none active:bg-green-400/10 active:text-green-600 active:outline-none data-[te-sidenav-state-active]:text-green-600 data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
+                        data-te-sidenav-link-ref="" data-te-collapse-init="" href="" tabindex="0"
+                        aria-expanded="true">
+                        <span
+                            class="mr-4 [&amp;>svg]:h-3.5 [&amp;>svg]:w-3.5 [&amp;>svg]:fill-gray-700 [&amp;>svg]:transition [&amp;>svg]:duration-300 [&amp;>svg]:ease-linear group-hover:[&amp;>svg]:fill-green-600 group-focus:[&amp;>svg]:fill-green-600 group-active:[&amp;>svg]:fill-green-600 group-[te-sidenav-state-active]:[&amp;>svg]:fill-green-600 motion-reduce:[&amp;>svg]:transition-none dark:[&amp;>svg]:fill-gray-300 dark:group-hover:[&amp;>svg]:fill-gray-300 ">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="#7B7B7B" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </span>
+                        <span>Management Akun</span>
+                    </a>
+                    <ul class="show relative m-0 list-none p-0 data-[te-collapse-show]:block !visible"
+                        data-te-sidenav-collapse-ref="" id="" style="" data-te-collapse-item=""
+                        data-te-collapse-show="">
+                        <li class="relative">
+                            <a class="flex h-6 cursor-pointer items-center truncate rounded-[5px] py-4 pl-[3.4rem] pr-6 text-[0.78rem] text-gray-700 outline-none transition duration-300 ease-linear hover:bg-green-400/10 hover:text-green-600 hover:outline-none focus:bg-green-400/10 focus:text-green-600 focus:outline-none active:bg-green-400/10 active:text-green-600 active:outline-none data-[te-sidenav-state-active]:text-green-600 data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10 relative overflow-hidden inline-block align-bottom"
+                                data-te-sidenav-link-ref="" tabindex="0">
+                                <span
+                                    class="mr-4 [&amp;>svg]:h-3.5 [&amp;>svg]:w-3.5 [&amp;>svg]:fill-gray-700 [&amp;>svg]:transition [&amp;>svg]:duration-300 [&amp;>svg]:ease-linear group-hover:[&amp;>svg]:fill-green-600 group-focus:[&amp;>svg]:fill-green-600 group-active:[&amp;>svg]:fill-green-600 group-[te-sidenav-state-active]:[&amp;>svg]:fill-green-600 motion-reduce:[&amp;>svg]:transition-none dark:[&amp;>svg]:fill-gray-300 dark:group-hover:[&amp;>svg]:fill-gray-300 ">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="8.5" cy="7" r="4"></circle>
+                                        <polyline points="17 11 19 13 23 9"></polyline>
+                                    </svg>
+                                </span>
+                                <span>Admin</span>
+                            </a>
+                        </li>
+                        <li class="relative">
+                            <a class="flex h-6 cursor-pointer items-center truncate rounded-[5px] py-4 pl-[3.4rem] pr-6 text-[0.78rem] text-gray-700 outline-none transition duration-300 ease-linear hover:bg-green-400/10 hover:text-green-600 hover:outline-none focus:bg-green-400/10 focus:text-green-600 focus:outline-none active:bg-green-400/10 active:text-green-600 active:outline-none data-[te-sidenav-state-active]:text-green-600 data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10 relative overflow-hidden inline-block align-bottom"
+                                data-te-sidenav-link-ref="" tabindex="0">
+                                <span
+                                    class="mr-4 [&amp;>svg]:h-3.5 [&amp;>svg]:w-3.5 [&amp;>svg]:fill-gray-700 [&amp;>svg]:transition [&amp;>svg]:duration-300 [&amp;>svg]:ease-linear group-hover:[&amp;>svg]:fill-green-600 group-focus:[&amp;>svg]:fill-green-600 group-active:[&amp;>svg]:fill-green-600 group-[te-sidenav-state-active]:[&amp;>svg]:fill-green-600 motion-reduce:[&amp;>svg]:transition-none dark:[&amp;>svg]:fill-gray-300 dark:group-hover:[&amp;>svg]:fill-gray-300 ">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="12" cy="7" r="4"></circle>
+                                    </svg>
+                                </span>
+                                <span>Pelanggan</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="relative">
+                    <a class="group flex h-12 cursor-pointer items-center truncate rounded-[5px] px-6 py-4 text-[0.875rem] text-gray-700 outline-none transition duration-300 ease-linear  hover:bg-green-400/10 hover:text-green-600 hover:outline-none focus:bg-green-400/10 focus:text-green-600 focus:outline-none active:bg-green-400/10 active:text-green-600 active:outline-none data-[te-sidenav-state-active]:text-green-600 data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
+                        href="#!">
+                        <span
+                            class="mr-4 [&amp;>svg]:h-3.5 [&amp;>svg]:w-3.5 [&amp;>svg]:fill-gray-700 [&amp;>svg]:transition [&amp;>svg]:duration-300 [&amp;>svg]:ease-linear group-hover:[&amp;>svg]:fill-green-600 group-focus:[&amp;>svg]:fill-green-600 group-active:[&amp;>svg]:fill-green-600 group-[te-sidenav-state-active]:[&amp;>svg]:fill-green-600 motion-reduce:[&amp;>svg]:transition-none dark:[&amp;>svg]:fill-gray-300 dark:group-hover:[&amp;>svg]:fill-gray-300 ">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24" fill="none" stroke="#7B7B7B" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6z" />
+                                <path d="M14 3v5h5M16 13H8M16 17H8M10 9H8" />
+                            </svg>
+                        </span>
+                        <span>Report</span>
                     </a>
                 </li>
-                <li>
-                    <a href="#"
-                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-                        <svg aria-hidden="true"
-                            class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                            fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                        <span class="flex-1 ml-3 whitespace-nowrap">Products</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#"
-                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-                        <svg aria-hidden="true"
-                            class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                            fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                        <span class="flex-1 ml-3 whitespace-nowrap">Sign In</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#"
-                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-                        <svg aria-hidden="true"
-                            class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                            fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M5 4a3 3 0 00-3 3v6a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H5zm-1 9v-1h5v2H5a1 1 0 01-1-1zm7 1h4a1 1 0 001-1v-1h-5v2zm0-4h5V8h-5v2zM9 8H4v2h5V8z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                        <span class="flex-1 ml-3 whitespace-nowrap">Sign Up</span>
+                <li class="relative">
+                    <a class="group flex h-12 cursor-pointer items-center truncate rounded-[5px] px-6 py-4 text-[0.875rem] text-gray-700 outline-none transition duration-300 ease-linear  hover:bg-green-400/10 hover:text-green-600 hover:outline-none focus:bg-green-400/10 focus:text-green-600 focus:outline-none active:bg-green-400/10 active:text-green-600 active:outline-none data-[te-sidenav-state-active]:text-green-600 data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
+                        href="#!">
+                        <span
+                            class="mr-4 [&amp;>svg]:h-3.5 [&amp;>svg]:w-3.5 [&amp;>svg]:fill-gray-700 [&amp;>svg]:transition [&amp;>svg]:duration-300 [&amp;>svg]:ease-linear group-hover:[&amp;>svg]:fill-green-600 group-focus:[&amp;>svg]:fill-green-600 group-active:[&amp;>svg]:fill-green-600 group-[te-sidenav-state-active]:[&amp;>svg]:fill-green-600 motion-reduce:[&amp;>svg]:transition-none dark:[&amp;>svg]:fill-gray-300 dark:group-hover:[&amp;>svg]:fill-gray-300 ">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24" fill="none" stroke="#7B7B7B" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z">
+                                </path>
+                            </svg>
+                        </span>
+                        <span>News</span>
                     </a>
                 </li>
             </ul>
