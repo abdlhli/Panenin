@@ -9,14 +9,14 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
-<body>
+<body style="margin-top: 64px;">
 
     @include('components.navbar')
 
     @include('components.sidebar')
 
     <!-- Ucapan selamat Datang Dan Hari Ini -->
-    <div class="p-4 sm:ml-64">
+    <div class="pl-4 sm:ml-64">
         <div class="p-4 mt-14">
             <h2 data-docsearch-ignore="true"
                 class="text-slate-900 text-xl tracking-tight font-bold mb-3 dark:text-slate-200">

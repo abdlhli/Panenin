@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use Illuminate\Support\Facades\Http;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,10 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::get('/register', [AuthController::class, 'RegisterPage'])->name('register');
 Route::post('/register', [AuthController::class, 'register']);
 
+Route::post('/logout', [AuthController::class, 'destroy'])
+    ->middleware('auth')
+    ->name('logout');
+
 // Membuat dan Menampilkan rute view
 Route::get('/', function () {
     return view('welcome');
@@ -32,9 +37,13 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
         return view('admin.dashboard');
     })->name('dashboard');
 
-    Route::get('product', function () {
-        return view('admin.product');
-    })->name('product');
+    Route::get('product-management', function () {
+        return view('admin.product-management');
+    })->name('product-management');
+
+    Route::get('jenis-product', function () {
+        return view('admin.jenis-product');
+    })->name('jenis-product');
 
     Route::get('akun-admin', function () {
         return view('admin.akun-admin');
@@ -51,4 +60,16 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::get('news', function () {
         return view('admin.news');
     })->name('news');
+});
+
+
+Route::middleware(['auth', 'check.admin'])->group(function () {
+
+    Route::get('akun-admin', function () {
+        return view('admin.akun-admin');
+    })->name('akun-admin');
+
+    Route::get('akun-pelanggan', function () {
+        return view('admin.akun-pelanggan');
+    })->name('akun-pelanggan');
 });
