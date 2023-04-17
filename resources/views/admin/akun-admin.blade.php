@@ -20,7 +20,7 @@
             </h2>
         </div>
         <div>
-            @livewire('users-table')
+            @livewire('admin-table')
         </div>
     </div>
 </body>

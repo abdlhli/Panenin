@@ -27,7 +27,7 @@
             <div
                 class="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
                 <button type="button"
-                    class="flex items-center justify-center text-white bg-green-900 hover:bg-green-950 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-primary-800">
+                    class="flex items-center justify-center text-white bg-green-900 hover:bg-green-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-primary-800">
                     <svg class="h-3.5 w-3.5 mr-2" fill="currentColor" viewbox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path clip-rule="evenodd" fill-rule="evenodd"
@@ -44,17 +44,17 @@
                         <th scope="col" class="px-4 py-3 bg-green-900">No</th>
                         <th scope="col" class="px-4 py-3 bg-green-900">Name</th>
                         <th scope="col" class="px-4 py-3 bg-green-900">Email</th>
-                        <th scope="col" class="px-4 py-3 bg-green-900">Alamat</th>
+                        <th scope="col" class="px-4 py-3 bg-green-900">Role</th>
                         <th scope="col" class="px-4 py-3 bg-green-900">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($userspelanggan as $user)
+                    @foreach ($alladmin as $user)
                         <tr class="border-b">
                             <th class="px-4 py-3 font-medium">{{ $i++ }}</th>
                             <td class="px-4 py-3">{{ $user->firstname }} {{ $user->lastname }}</td>
                             <td class="px-4 py-3">{{ $user->email }}</td>
-                            <td class="px-4 py-3">{{ $user->alamat }}</td>
+                            <td class="px-4 py-3">{{ $user->nama_hak_akses }}</td>
                             <td class="py-3">
                                 <div class="flex px-4">
                                     <button
@@ -103,7 +103,6 @@
                 </tbody>
             </table>
         </div>
-
         <div class="flex flex-col items-center py-7">
             <!-- Help text -->
             <span class="text-sm text-gray-700 dark:text-gray-400">
@@ -112,7 +111,6 @@
                 <span class="font-semibold text-gray-900 dark:text-white">{{ $akuns->lastItem() }}</span> of
                 <span class="font-semibold text-gray-900 dark:text-white">{{ $akuns->total() }}</span> Entries
             </span>
-
             <div class="inline-flex mt-2 xs:mt-0">
                 <!-- Buttons -->
                 @if ($akuns->previousPageUrl())

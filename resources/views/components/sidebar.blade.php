@@ -8,8 +8,8 @@
                     href="{{ route('admin.dashboard') }}">
                     <span
                         class="mr-4 [&amp;>svg]:h-3.5 [&amp;>svg]:w-3.5 [&amp;>svg]:fill-gray-700 [&amp;>svg]:transition [&amp;>svg]:duration-300 [&amp;>svg]:ease-linear group-hover:[&amp;>svg]:fill-green-600 group-focus:[&amp;>svg]:fill-green-600 group-active:[&amp;>svg]:fill-green-600 group-[te-sidenav-state-active]:[&amp;>svg]:fill-green-600 motion-reduce:[&amp;>svg]:transition-none dark:[&amp;>svg]:fill-gray-300 dark:group-hover:[&amp;>svg]:fill-gray-300 ">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="#7B7B7B" stroke-width="2" stroke-linecap="round"
+                        <svg class="stroke-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="#7B7B7B" stroke-width="2" stroke-linecap="round"
                             stroke-linejoin="round">
                             <rect x="3" y="3" width="7" height="7"></rect>
                             <rect x="14" y="3" width="7" height="7"></rect>
@@ -25,8 +25,8 @@
                     class="group flex h-12 cursor-pointer items-center truncate rounded-[5px] px-6 py-4 text-[0.875rem] text-gray-700 outline-none transition duration-300 ease-linear hover:bg-green-400/10 hover:text-green-600 hover:outline-none focus:bg-green-400/10 focus:text-green-600 focus:outline-none active:bg-green-400/10 active:text-green-600 active:outline-none data-[te-sidenav-state-active]:text-green-600 data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10">
                     <span
                         class="mr-4 [&amp;>svg]:h-3.5 [&amp;>svg]:w-3.5 [&amp;>svg]:fill-gray-700 [&amp;>svg]:transition [&amp;>svg]:duration-300 [&amp;>svg]:ease-linear group-hover:[&amp;>svg]:fill-green-600 group-focus:[&amp;>svg]:fill-green-600 group-active:[&amp;>svg]:fill-green-600 group-[te-sidenav-state-active]:[&amp;>svg]:fill-green-600 motion-reduce:[&amp;>svg]:transition-none dark:[&amp;>svg]:fill-gray-300 dark:group-hover:[&amp;>svg]:fill-gray-300 ">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="#7B7B7B" stroke-width="2" stroke-linecap="round"
+                        <svg class="stroke-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="#7B7B7B" stroke-width="2" stroke-linecap="round"
                             stroke-linejoin="round">
                             <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                             <circle cx="9" cy="7" r="4"></circle>
@@ -44,8 +44,8 @@
                             data-te-sidenav-link-ref="" tabindex="0" href="{{ route('admin.akun-admin') }}">
                             <span
                                 class="mr-4 [&amp;>svg]:h-3.5 [&amp;>svg]:w-3.5 [&amp;>svg]:fill-gray-700 [&amp;>svg]:transition [&amp;>svg]:duration-300 [&amp;>svg]:ease-linear group-hover:[&amp;>svg]:fill-green-600 group-focus:[&amp;>svg]:fill-green-600 group-active:[&amp;>svg]:fill-green-600 group-[te-sidenav-state-active]:[&amp;>svg]:fill-green-600 motion-reduce:[&amp;>svg]:transition-none dark:[&amp;>svg]:fill-gray-300 dark:group-hover:[&amp;>svg]:fill-gray-300 ">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                    viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2"
+                                <svg class="stroke-current" xmlns="http://www.w3.org/2000/svg" width="24"
+                                    height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2"
                                     stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                                     <circle cx="8.5" cy="7" r="4"></circle>
@@ -60,8 +60,8 @@
                             data-te-sidenav-link-ref="" tabindex="0" href="{{ route('admin.akun-pelanggan') }}">
                             <span
                                 class="mr-4 [&amp;>svg]:h-3.5 [&amp;>svg]:w-3.5 [&amp;>svg]:fill-gray-700 [&amp;>svg]:transition [&amp;>svg]:duration-300 [&amp;>svg]:ease-linear group-hover:[&amp;>svg]:fill-green-600 group-focus:[&amp;>svg]:fill-green-600 group-active:[&amp;>svg]:fill-green-600 group-[te-sidenav-state-active]:[&amp;>svg]:fill-green-600 motion-reduce:[&amp;>svg]:transition-none dark:[&amp;>svg]:fill-gray-300 dark:group-hover:[&amp;>svg]:fill-gray-300 ">
-                                <svg class="ml-[-2.75px]" xmlns="http://www.w3.org/2000/svg" width="24"
-                                    height="24" viewBox="0 0 24 24" fill="none" stroke="#000000"
+                                <svg class="ml-[-2.75px] stroke-current" xmlns="http://www.w3.org/2000/svg"
+                                    width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000"
                                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                                     <circle cx="12" cy="7" r="4"></circle>
@@ -86,10 +86,11 @@
                     data-te-collapse-show="">
                     <li class="relative">
                         <a class="flex h-6 cursor-pointer items-center truncate rounded-[5px] py-4 pl-[3.4rem] pr-6 text-[0.78rem] text-gray-700 outline-none transition duration-300 ease-linear hover:bg-green-400/10 hover:text-green-600 hover:outline-none focus:bg-green-400/10 focus:text-green-600 focus:outline-none active:bg-green-400/10 active:text-green-600 active:outline-none data-[te-sidenav-state-active]:text-green-600 data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10 relative overflow-hidden inline-block align-bottom"
-                            data-te-sidenav-link-ref="" tabindex="0" href="{{ route('admin.product-management') }}">
+                            data-te-sidenav-link-ref="" tabindex="0"
+                            href="{{ route('admin.product-management') }}">
                             <span
                                 class="mr-4 [&amp;>svg]:h-3.5 [&amp;>svg]:w-3.5 [&amp;>svg]:fill-gray-700 [&amp;>svg]:transition [&amp;>svg]:duration-300 [&amp;>svg]:ease-linear group-hover:[&amp;>svg]:fill-green-600 group-focus:[&amp;>svg]:fill-green-600 group-active:[&amp;>svg]:fill-green-600 group-[te-sidenav-state-active]:[&amp;>svg]:fill-green-600 motion-reduce:[&amp;>svg]:transition-none dark:[&amp;>svg]:fill-gray-300 dark:group-hover:[&amp;>svg]:fill-gray-300 ">
-                                <?xml version="1.0" ?><svg height="24px" version="1.1" viewBox="0 0 24 24"
+                                <svg class="stroke-current" height="24px" version="1.1" viewBox="0 0 24 24"
                                     width="24px" xmlns="http://www.w3.org/2000/svg"
                                     xmlns:xlink="http://www.w3.org/1999/xlink">
                                     <title />
@@ -126,7 +127,7 @@
                             data-te-sidenav-link-ref="" tabindex="0" href="{{ route('admin.jenis-product') }}">
                             <span
                                 class="mr-4 [&amp;>svg]:h-3.5 [&amp;>svg]:w-3.5 [&amp;>svg]:fill-gray-700 [&amp;>svg]:transition [&amp;>svg]:duration-300 [&amp;>svg]:ease-linear group-hover:[&amp;>svg]:fill-green-600 group-focus:[&amp;>svg]:fill-green-600 group-active:[&amp;>svg]:fill-green-600 group-[te-sidenav-state-active]:[&amp;>svg]:fill-green-600 motion-reduce:[&amp;>svg]:transition-none dark:[&amp;>svg]:fill-gray-300 dark:group-hover:[&amp;>svg]:fill-gray-300 ">
-                                <?xml version="1.0" ?><svg class="bi bi-boxes" fill="currentColor" height="16"
+                                <svg class="bi bi-boxes stroke-current" fill="currentColor" height="16"
                                     viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M7.752.066a.5.5 0 0 1 .496 0l3.75 2.143a.5.5 0 0 1 .252.434v3.995l3.498 2A.5.5 0 0 1 16 9.07v4.286a.5.5 0 0 1-.252.434l-3.75 2.143a.5.5 0 0 1-.496 0l-3.502-2-3.502 2.001a.5.5 0 0 1-.496 0l-3.75-2.143A.5.5 0 0 1 0 13.357V9.071a.5.5 0 0 1 .252-.434L3.75 6.638V2.643a.5.5 0 0 1 .252-.434L7.752.066ZM4.25 7.504 1.508 9.071l2.742 1.567 2.742-1.567L4.25 7.504ZM7.5 9.933l-2.75 1.571v3.134l2.75-1.571V9.933Zm1 3.134 2.75 1.571v-3.134L8.5 9.933v3.134Zm.508-3.996 2.742 1.567 2.742-1.567-2.742-1.567-2.742 1.567Zm2.242-2.433V3.504L8.5 5.076V8.21l2.75-1.572ZM7.5 8.21V5.076L4.75 3.504v3.134L7.5 8.21ZM5.258 2.643 8 4.21l2.742-1.567L8 1.076 5.258 2.643ZM15 9.933l-2.75 1.571v3.134L15 13.067V9.933ZM3.75 14.638v-3.134L1 9.933v3.134l2.75 1.571Z" />
@@ -152,9 +153,8 @@
                     href="{{ route('admin.news') }}">
                     <span
                         class="mr-4 [&amp;>svg]:h-3.5 [&amp;>svg]:w-3.5 [&amp;>svg]:fill-gray-700 [&amp;>svg]:transition [&amp;>svg]:duration-300 [&amp;>svg]:ease-linear group-hover:[&amp;>svg]:fill-green-600 group-focus:[&amp;>svg]:fill-green-600 group-active:[&amp;>svg]:fill-green-600 group-[te-sidenav-state-active]:[&amp;>svg]:fill-green-600 motion-reduce:[&amp;>svg]:transition-none dark:[&amp;>svg]:fill-gray-300 dark:group-hover:[&amp;>svg]:fill-gray-300 ">
-                        <?xml version="1.0" ?>
-                        <svg enable-background="new 0 0 32 32" height="32px" id="svg2" version="1.1"
-                            viewBox="0 0 32 32" width="32px" xml:space="preserve"
+                        <svg class="stroke-current" enable-background="new 0 0 32 32" height="32px" id="svg2"
+                            version="1.1" viewBox="0 0 32 32" width="32px" xml:space="preserve"
                             xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#"
                             xmlns:dc="http://purl.org/dc/elements/1.1/"
                             xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -180,8 +180,8 @@
                         class="group flex h-12 w-full cursor-pointer items-center truncate rounded-[5px] pl-6 pr-36 py-4 text-[0.875rem] text-gray-700 outline-none transition duration-300 ease-linear  hover:bg-green-400/10 hover:text-green-600 hover:outline-none focus:bg-green-400/10 focus:text-green-600 focus:outline-none active:bg-green-400/10 active:text-green-600 active:outline-none data-[te-sidenav-state-active]:text-green-600 data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10">
                         <span
                             class="mr-4 [&amp;>svg]:h-3.5 [&amp;>svg]:w-3.5 [&amp;>svg]:fill-gray-700 [&amp;>svg]:transition [&amp;>svg]:duration-300 [&amp;>svg]:ease-linear group-hover:[&amp;>svg]:fill-green-600 group-focus:[&amp;>svg]:fill-green-600 group-active:[&amp;>svg]:fill-green-600 group-[te-sidenav-state-active]:[&amp;>svg]:fill-green-600 motion-reduce:[&amp;>svg]:transition-none dark:[&amp;>svg]:fill-gray-300 dark:group-hover:[&amp;>svg]:fill-gray-300 ">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35"
-                                viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2"
+                            <svg class="stroke-current" xmlns="http://www.w3.org/2000/svg" width="35"
+                                height="35" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2"
                                 stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M16 17l5-5-5-5M19.8 12H9M10 3H4v18h6" />
                             </svg>
