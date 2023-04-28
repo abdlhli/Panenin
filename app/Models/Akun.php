@@ -22,7 +22,14 @@ class Akun extends Authenticatable
         'no_telp',
         'id_hak_akses'
     ];
-
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
+    public $timestamps = false;
     protected $primaryKey = 'id_user';
     public $incrementing = false;
     protected $keyType = 'string';
@@ -46,14 +53,8 @@ class Akun extends Authenticatable
         });
     }
 
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
-
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
-
-    public $timestamps = false;
+    public function relasiAkunKeHakAkses()
+    {
+        return $this->hasOne(HakAkses::class, 'id_hak_akses', 'id_hak_akses');
+    }
 }

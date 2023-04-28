@@ -14,6 +14,11 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
+    public function RegisterPage()
+    {
+        return view('auth.register');
+    }
+
     public function login(Request $request)
     {
         $credentials = $request->validate([
@@ -31,41 +36,6 @@ class AuthController extends Controller
 
         Auth::login($akun);
         return redirect()->route('admin.dashboard');
-    }
-
-    public function RegisterPage()
-    {
-        return view('auth.register');
-    }
-
-    public function register(Request $request)
-    {
-        // validasi data
-        $validatedData = $request->validate([
-            'firstname' => 'required|string|max:255',
-            'lastname' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:akun',
-            'password' => 'required|string|min:8|confirmed',
-            'alamat' => 'required|string|max:255',
-            'no_telp' => 'required|string|max:255',
-        ]);
-
-        // buat user baru
-        $user = Akun::create([
-            'firstname' => $validatedData['firstname'],
-            'lastname' => $validatedData['lastname'],
-            'email' => $validatedData['email'],
-            'password' => bcrypt($validatedData['password']),
-            'alamat' => $validatedData['alamat'],
-            'no_telp' => $validatedData['no_telp'],
-            'id_hak_akses' => 1, // set hak akses sebagai Admin
-        ]);
-
-        // login user
-        Auth::login($user);
-
-        // redirect ke halaman setelah berhasil login
-        return redirect('/home');
     }
 
     /**

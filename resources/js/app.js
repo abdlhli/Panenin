@@ -1,2 +1,2 @@
-require('./bootstrap');
-import 'flowbite';
+require("./bootstrap");
+import "flowbite";

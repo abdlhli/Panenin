@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\SettingsController;
 
 
 /*
@@ -18,14 +19,17 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 // Mendapatkan rute fungsi query
 Route::get('/login', [AuthController::class, 'LoginPage'])->name('login');
-Route::post('/login', [AuthController::class, 'login']);
-
 Route::get('/register', [AuthController::class, 'RegisterPage'])->name('register');
-Route::post('/register', [AuthController::class, 'register']);
+Route::get('/settings', [SettingsController::class, 'index'])->name('settings.index');
 
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/tmbadmin', [AdminController::class, 'inputAdmin']);
 Route::post('/logout', [AuthController::class, 'destroy'])
     ->middleware('auth')
     ->name('logout');
+
+Route::delete('/admin/hapus/{id_user}', [AdminController::class, 'hapus'])->name('admin.hapus');
+
 
 // Membuat dan Menampilkan rute view
 Route::get('/', function () {
@@ -57,19 +61,11 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
         return view('admin.report');
     })->name('report');
 
-    Route::get('news', function () {
-        return view('admin.news');
-    })->name('news');
-});
+    Route::get('banner', function () {
+        return view('admin.banner');
+    })->name('banner');
 
-
-Route::middleware(['auth', 'check.admin'])->group(function () {
-
-    Route::get('akun-admin', function () {
-        return view('admin.akun-admin');
-    })->name('akun-admin');
-
-    Route::get('akun-pelanggan', function () {
-        return view('admin.akun-pelanggan');
-    })->name('akun-pelanggan');
+    Route::get('settings', function () {
+        return view('admin.settings');
+    })->name('settings');
 });

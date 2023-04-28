@@ -3,7 +3,6 @@
 @endphp
 
 <div class="mx-auto max-w-screen-xl px-4 lg:px-12">
-    <!-- Start coding here -->
     <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
         <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
             <div class="w-full md:w-1/2">
@@ -26,19 +25,25 @@
             </div>
             <div
                 class="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
-                <button type="button"
+                <button type="button" data-modal-target="ModalTambahAkunAdmin" data-modal-toggle="ModalTambahAkunAdmin"
                     class="flex items-center justify-center text-white bg-green-900 hover:bg-green-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-primary-800">
                     <svg class="h-3.5 w-3.5 mr-2" fill="currentColor" viewbox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path clip-rule="evenodd" fill-rule="evenodd"
                             d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" />
                     </svg>
-                    Add User
+                    Tambah User
                 </button>
             </div>
         </div>
         <div class="overflow-x-auto">
             <table id="my-table" class="w-full text-sm text-left">
+                <caption
+                    class="p-5 text-lg font-semibold text-left text-gray-900 bg-white dark:text-white dark:bg-gray-800">
+                    Tabel Informasi Admin
+                    <p class="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">Tabel berisi informasi nama,
+                        email, dan hak akses dari semua admin yang terdaftar</p>
+                </caption>
                 <thead class="text-xs text-white uppercase bg-gray-50">
                     <tr>
                         <th scope="col" class="px-4 py-3 bg-green-900">No</th>
@@ -46,18 +51,33 @@
                         <th scope="col" class="px-4 py-3 bg-green-900">Email</th>
                         <th scope="col" class="px-4 py-3 bg-green-900">Role</th>
                         <th scope="col" class="px-4 py-3 bg-green-900">Actions</th>
+                        <th scope="col" class="px-4 py-3 bg-green-900">
+                            <span class="text-gray-100 dark:text-white">
+                                Showing
+                                <span class=" text-gray-100 dark:text-white">{{ $akuns->total() }}</span>
+                                Entries
+                            </span>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($alladmin as $user)
-                        <tr class="border-b">
+                        <tr class="border-b hover:bg-gray-200">
                             <th class="px-4 py-3 font-medium">{{ $i++ }}</th>
-                            <td class="px-4 py-3">{{ $user->firstname }} {{ $user->lastname }}</td>
+                            <td class=" flex items-center px-6 py-4 font-semibold">
+                                <img class="w-10 h-10 rounded-full mr-2" src="/assets/images/photoprofile/foto.jpeg"
+                                    alt="foto">
+                                <div class="pl-3">
+                                    <div class="font-semibold">{{ $user->firstname }} {{ $user->lastname }}
+                                    </div>
+                                    <div class="font-normal text-gray-500">{{ $user->id_user }}</div>
+                                </div>
+                            </td>
                             <td class="px-4 py-3">{{ $user->email }}</td>
                             <td class="px-4 py-3">{{ $user->nama_hak_akses }}</td>
                             <td class="py-3">
                                 <div class="flex px-4">
-                                    <button
+                                    <button id="TombolModalDetailAkunAdmin" data-modal-toggle="ModalDetailAkunAdmin"
                                         class="flex items-center bg-gray-200 hover:bg-gray-100 text-gray-500 hover:text-cyan-500 font-semibold py-1 px-4 mx-1 border border-gray-300 rounded shadow">
                                         <svg class="mx-1 stroke-current" xmlns="http://www.w3.org/2000/svg"
                                             width="12" height="12" viewBox="0 0 24 24" fill="none"
@@ -68,7 +88,7 @@
                                         </svg>
                                         <span class="mx-1 pr-2">Show</span>
                                     </button>
-                                    <button
+                                    <button id="TombolModalEditAkunAdmin" data-modal-toggle="ModalEditAkunAdmin"
                                         class="flex items-center bg-gray-200 hover:bg-gray-100 text-gray-500 hover:text-green-500 font-semibold py-1 px-4 mx-1 border border-gray-300 rounded shadow">
                                         <svg class="mx-1 stroke-current hover:text-green-500"
                                             xmlns="http://www.w3.org/2000/svg" width="12" height="12"
@@ -80,7 +100,7 @@
                                         </svg>
                                         <span class="mx-1 pr-2">Edit</span>
                                     </button>
-                                    <button
+                                    <button id="TombolModalDeleteAkunAdmin" data-modal-toggle="ModalDeleteAkunAdmin"
                                         class="flex items-center bg-gray-200 hover:bg-gray-100 text-gray-500 hover:text-red-500 font-semibold py-1 px-4 mx-1 border border-gray-300 rounded shadow">
                                         <svg class="mx-1 stroke-current hover:text-red-500"
                                             xmlns="http://www.w3.org/2000/svg" width="12" height="12"
@@ -90,13 +110,16 @@
                                             <path
                                                 d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
                                             </path>
-                                            <line x1="10" y1="11" x2="10" y2="17"></line>
+                                            <line x1="10" y1="11" x2="10" y2="17">
+                                            </line>
                                             <line x1="14" y1="11" x2="14" y2="17">
                                             </line>
                                         </svg>
-                                        <span class="mx-1 pr-2">Edit</span>
+                                        <span class="mx-1 pr-2">Delete</span>
                                     </button>
                                 </div>
+                            </td>
+                            <td>
                             </td>
                         </tr>
                     @endforeach
@@ -106,42 +129,15 @@
         <div class="flex flex-col items-center py-7">
             <!-- Help text -->
             <span class="text-sm text-gray-700 dark:text-gray-400">
-                Showing <span class="font-semibold text-gray-900 dark:text-white">{{ $akuns->firstItem() }}</span>
-                to
-                <span class="font-semibold text-gray-900 dark:text-white">{{ $akuns->lastItem() }}</span> of
-                <span class="font-semibold text-gray-900 dark:text-white">{{ $akuns->total() }}</span> Entries
             </span>
-            <div class="inline-flex mt-2 xs:mt-0">
-                <!-- Buttons -->
-                @if ($akuns->previousPageUrl())
-                    <a href="{{ $akuns->previousPageUrl() }}"
-                        class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-green-900 rounded-0 hover:bg-green-950 rounded-l dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                        <svg aria-hidden="true" class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                        Prev
-                    </a>
-                @endif
-
-                @if ($akuns->nextPageUrl())
-                    <a href="{{ $akuns->nextPageUrl() }}"
-                        class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-green-900 rounded-0 hover:bg-green-950 rounded-r dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                        Next
-                        <svg aria-hidden="true" class="w-5 h-5 ml-2" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                    </a>
-                @endif
-            </div>
         </div>
     </div>
 </div>
+
+<!-- Modal Untuk Show, Edit, Dan Delete -->
+@include('components.modalshowadmin')
+@include('components.modaleditadmin')
+@include('components.modaldeleteadmin')
 
 <script>
     var input = document.getElementById("simple-search");
@@ -150,10 +146,15 @@
     input.addEventListener("keyup", function() {
         var filter = input.value.toLowerCase();
         for (var i = 0; i < tr.length; i++) {
-            var td = tr[i].getElementsByTagName("td")[0, 1];
-            if (td) {
-                var text = td.textContent || td.innerText;
-                if (text.toLowerCase().indexOf(filter) > -1) {
+            var td1 = tr[i].getElementsByTagName("td")[0];
+            var td2 = tr[i].getElementsByTagName("td")[1];
+            var td3 = tr[i].getElementsByTagName("td")[2];
+            if (td1 || td2 || td3) {
+                var text1 = td1.textContent || td1.innerText;
+                var text2 = td2.textContent || td2.innerText;
+                var text3 = td3.textContent || td3.innerText;
+                if (text1.toLowerCase().indexOf(filter) > -1 || text2.toLowerCase().indexOf(filter) > -1 ||
+                    text3.toLowerCase().indexOf(filter) > -1) {
                     tr[i].style.display = "";
                 } else {
                     tr[i].style.display = "none";

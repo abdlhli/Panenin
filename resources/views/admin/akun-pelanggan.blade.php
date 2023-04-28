@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <title> Admin - Akun Management </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+
+    <link href="@vite(['resources/css/app.css', 'resources/js/app.js'])">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
@@ -16,10 +16,6 @@
     @include('components.sidebar')
     <div class="pl-4 sm:ml-64">
         <div class="p-4 mt-14">
-            <h2 data-docsearch-ignore="true"
-                class="text-slate-900 text-xl tracking-tight font-bold mb-3 dark:text-slate-200">
-                Manage Users
-            </h2>
         </div>
         <div>
             @livewire('users-table')
