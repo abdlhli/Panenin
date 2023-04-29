@@ -20,13 +20,15 @@ use App\Http\Controllers\SettingsController;
 // Mendapatkan rute fungsi query
 Route::get('/login', [AuthController::class, 'LoginPage'])->name('login');
 Route::get('/register', [AuthController::class, 'RegisterPage'])->name('register');
-Route::get('/settings', [SettingsController::class, 'index'])->name('settings.index');
 
+
+Route::post('/update-account', [SettingsController::class, 'update'])->name('update-account');
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/tmbadmin', [AdminController::class, 'inputAdmin']);
 Route::post('/logout', [AuthController::class, 'destroy'])
     ->middleware('auth')
     ->name('logout');
+
 
 Route::delete('/admin/hapus/{id_user}', [AdminController::class, 'hapus'])->name('admin.hapus');
 
