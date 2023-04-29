@@ -25,6 +25,8 @@ class SettingsController extends Controller
             // if (file_exists($oldImage)) {
             //     unlink($oldImage);
             // }
+
+            // hapus gambar lama
             if ($user->image && file_exists(storage_path('app/public/assets/images/photoprofile/' . $user->image))) {
                 unlink('public/assets/images/photoprofile/' . $user->image);
             }
