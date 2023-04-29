@@ -13,7 +13,8 @@
                             class="flex mx-1 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
                             type="button">
                             <span class="sr-only">Open user menu</span>
-                            <img class="w-8 h-8 rounded-full" src="/assets/images/photoprofile/foto.jpeg"
+                            <img class="w-8 h-8 rounded-full"
+                                src="{{ asset('assets/images/photoprofile/' . auth()->user()->foto_profile) }}"
                                 alt="user photo">
                         </button>
                         <div id="menuAvatar"

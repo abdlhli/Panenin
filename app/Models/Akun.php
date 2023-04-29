@@ -20,7 +20,8 @@ class Akun extends Authenticatable
         'password',
         'alamat',
         'no_telp',
-        'id_hak_akses'
+        'id_hak_akses',
+        'foto_profile'
     ];
     protected $hidden = [
         'password',
@@ -39,7 +40,7 @@ class Akun extends Authenticatable
         parent::boot();
 
         static::creating(function ($model) {
-            if ($model->id_hak_akses == 1 || $model->id_hak_akses == 2) { // Jika user yang akan disimpan adalah admin
+            if ($model->id_hak_akses == 1 || $model->id_hak_akses == 2) { // Jika user yang akan disimpan adalah admin dan operator
                 $latestAdmin = static::where('id_user', 'like', 'ADM%')->orderBy('id_user', 'desc')->first();
                 $latestAdminId = $latestAdmin ? intval(substr($latestAdmin->id_user, 3)) : 0;
                 $newAdminId = str_pad($latestAdminId + 1, 5, '0', STR_PAD_LEFT);

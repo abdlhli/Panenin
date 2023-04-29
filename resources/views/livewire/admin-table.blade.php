@@ -65,7 +65,8 @@
                         <tr class="border-b hover:bg-gray-200">
                             <th class="px-4 py-3 font-medium">{{ $i++ }}</th>
                             <td class=" flex items-center px-6 py-4 font-semibold">
-                                <img class="w-10 h-10 rounded-full mr-2" src="/assets/images/photoprofile/foto.jpeg"
+                                <img class="w-10 h-10 rounded-full mr-2"
+                                    src="{{ asset('assets/images/photoprofile/' . $user->foto_profile) }}"
                                     alt="foto">
                                 <div class="pl-3">
                                     <div class="font-semibold">{{ $user->firstname }} {{ $user->lastname }}
