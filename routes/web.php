@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BannerController;
 use App\Http\Controllers\SettingsController;
 
 
@@ -17,26 +18,27 @@ use App\Http\Controllers\SettingsController;
 |
 */
 
-// Mendapatkan rute fungsi query
-Route::get('/login', [AuthController::class, 'LoginPage'])->name('login');
-Route::get('/register', [AuthController::class, 'RegisterPage'])->name('register');
-
-
-Route::post('/update-account', [SettingsController::class, 'update'])->name('update-account');
-Route::post('/login', [AuthController::class, 'login']);
-Route::post('/tmbadmin', [AdminController::class, 'inputAdmin']);
-Route::post('/logout', [AuthController::class, 'destroy'])
-    ->middleware('auth')
-    ->name('logout');
-
-
-Route::delete('/admin/hapus/{id_user}', [AdminController::class, 'hapus'])->name('admin.hapus');
-
-
 // Membuat dan Menampilkan rute view
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
+
+// Mendapatkan rute fungsi query
+Route::get('/login', [AuthController::class, 'LoginPage'])->name('login');
+Route::get('/register', [AuthController::class, 'RegisterPage'])->name('register');
+
+Route::post('/banners/{id}/status', [BannerController::class, 'updateStatus'])->name('banners.status.update');
+Route::put('/akun/update/{id}', [AdminController::class, 'update'])->name('akun.update');
+Route::post('/update-account', [SettingsController::class, 'update'])->name('update-account');
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/tmbadmin', [AdminController::class, 'inputAdmin']);
+Route::post('/tambahBanner', [BannerController::class, 'inputBanner']);
+Route::post('/logout', [AuthController::class, 'destroy'])
+    ->middleware('auth')
+    ->name('logout');
+
+Route::delete('/admin/hapus/{id_user}', [AdminController::class, 'hapus'])->name('admin.hapus');
+Route::delete('/banners/{id_banner}', [BannerController::class, 'destroy'])->name('banners.destroy');
 
 Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::get('dashboard', function () {

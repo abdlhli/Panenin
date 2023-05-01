@@ -58,4 +58,9 @@ class Akun extends Authenticatable
     {
         return $this->hasOne(HakAkses::class, 'id_hak_akses', 'id_hak_akses');
     }
+
+    public function relasiAkunKeBanner()
+    {
+        return $this->hasOne(Akun::class, 'id_user', 'id_user');
+    }
 }

@@ -78,7 +78,8 @@
                             <td class="px-4 py-3">{{ $user->nama_hak_akses }}</td>
                             <td class="py-3">
                                 <div class="flex px-4">
-                                    <button id="TombolModalDetailAkunAdmin" data-modal-toggle="ModalDetailAkunAdmin"
+                                    <button id="TombolModalDetailAkunAdmin"
+                                        data-modal-toggle="ModalDetailAkunAdmin{{ $user->id_user }}"
                                         class="flex items-center bg-gray-200 hover:bg-gray-100 text-gray-500 hover:text-cyan-500 font-semibold py-1 px-4 mx-1 border border-gray-300 rounded shadow">
                                         <svg class="mx-1 stroke-current" xmlns="http://www.w3.org/2000/svg"
                                             width="12" height="12" viewBox="0 0 24 24" fill="none"
@@ -89,7 +90,8 @@
                                         </svg>
                                         <span class="mx-1 pr-2">Show</span>
                                     </button>
-                                    <button id="TombolModalEditAkunAdmin" data-modal-toggle="ModalEditAkunAdmin"
+                                    <button id="TombolModalEditAkunAdmin"
+                                        data-modal-toggle="ModalEditAkunAdmin{{ $user->id_user }}"
                                         class="flex items-center bg-gray-200 hover:bg-gray-100 text-gray-500 hover:text-green-500 font-semibold py-1 px-4 mx-1 border border-gray-300 rounded shadow">
                                         <svg class="mx-1 stroke-current hover:text-green-500"
                                             xmlns="http://www.w3.org/2000/svg" width="12" height="12"
@@ -101,7 +103,8 @@
                                         </svg>
                                         <span class="mx-1 pr-2">Edit</span>
                                     </button>
-                                    <button id="TombolModalDeleteAkunAdmin" data-modal-toggle="ModalDeleteAkunAdmin"
+                                    <button id="TombolModalDeleteAkunAdmin"
+                                        data-modal-toggle="ModalDeleteAkunAdmin{{ $user->id_user }}"
                                         class="flex items-center bg-gray-200 hover:bg-gray-100 text-gray-500 hover:text-red-500 font-semibold py-1 px-4 mx-1 border border-gray-300 rounded shadow">
                                         <svg class="mx-1 stroke-current hover:text-red-500"
                                             xmlns="http://www.w3.org/2000/svg" width="12" height="12"
@@ -123,6 +126,10 @@
                             <td>
                             </td>
                         </tr>
+                        <!-- Modal Untuk Show, Edit, Dan Delete -->
+                        @include('components.modalshowadmin')
+                        @include('components.modaleditadmin')
+                        @include('components.modaldeleteadmin')
                     @endforeach
                 </tbody>
             </table>
@@ -134,11 +141,6 @@
         </div>
     </div>
 </div>
-
-<!-- Modal Untuk Show, Edit, Dan Delete -->
-@include('components.modalshowadmin')
-@include('components.modaleditadmin')
-@include('components.modaldeleteadmin')
 
 <script>
     var input = document.getElementById("simple-search");

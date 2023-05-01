@@ -1,11 +1,11 @@
-<div id="ModalDetailAkunAdmin" tabindex="-1" aria-hidden="true" data-modal-backdrop="static"
+<div id="ModalDetailAkunAdmin{{ $user->id_user }}" tabindex="-1" aria-hidden="true" data-modal-backdrop="static"
     class="hidden fixed top-0 left-0 right-0 z-50 w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative w-full max-w-lg max-h-full">
         <!-- Modal content -->
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
             <button type="button"
                 class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
-                data-modal-hide="ModalDetailAkunAdmin">
+                data-modal-hide="ModalDetailAkunAdmin{{ $user->id_user }}">
                 <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd"
@@ -16,7 +16,7 @@
             </button>
             <div class="px-6 py-6 lg:px-8">
                 <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Detail Akun Admin</h3>
-                <form method="POST" action="/tmbadmin">
+                <form>
                     @csrf
                     <div class="grid md:grid-cols-2 md:gap-6">
                         <div class="mb-6">
@@ -24,6 +24,7 @@
                                 <label for="small-input"
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Firstname</label>
                                 <input type="text" id="firstname" name="firstname" disabled
+                                    value="{{ $user->firstname }}"
                                     class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             </div>
                         </div>
@@ -32,6 +33,7 @@
                                 <label for="small-input"
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Lastname</label>
                                 <input type="text" id="lastname" name="lastname" disabled
+                                    value="{{ $user->lastname }}"
                                     class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             </div>
                         </div>
@@ -50,7 +52,7 @@
                                     <polyline points="22,6 12,13 2,6"></polyline>
                                 </svg>
                             </div>
-                            <input type="text" id="email" name="email" disabled
+                            <input type="text" id="email" name="email" disabled value="{{ $user->email }}"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 disabled>
                         </div>
@@ -68,7 +70,7 @@
                                     </path>
                                 </svg>
                             </div>
-                            <input type="number" id="no_telp" name="no_telp" disabled
+                            <input type="number" id="no_telp" name="no_telp" disabled value="{{ $user->no_telp }}"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         </div>
                     </div>
@@ -76,7 +78,7 @@
                         <label for="email-address-icon"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Home Address</label>
                         <div class="relative">
-                            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                            <div class="absolute inset-y-0 left-0 flex items-start pl-3 pt-3 pointer-events-none">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                     viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1"
                                     stroke-linecap="round" stroke-linejoin="round">
@@ -86,15 +88,25 @@
                                 </svg>
                             </div>
                             <textarea type="text" id="alamat" name="alamat" disabled
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            </textarea>
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full text-left pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">{{ $user->alamat }}
+                                </textarea>
                         </div>
                     </div>
                     <div class="mb-6">
-                        <label for="small-input"
+                        <label for="email-address-icon"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Hak Akses</label>
-                        <input type="text" id="hak_akses" name="hak_akses" disabled
-                            class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                    viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </div>
+                            <input type="text" id="alamat" name="alamat" disabled
+                                value="{{ $user->nama_hak_akses }}"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        </div>
                     </div>
                 </form>
             </div>
