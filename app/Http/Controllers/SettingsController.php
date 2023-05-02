@@ -18,32 +18,29 @@ class SettingsController extends Controller
         $user->alamat = $request->alamat;
         $user->no_telp = $request->no_telp;
 
-        // simpan gambar baru ke direktori publik
+        // mengecek apakah user merubah foto profile
         if ($request->hasFile('foto_profile')) {
-            // hapus gambar lama
-            // $oldImage = public_path('assets/images/photoprofile/' . $user->foto_profile);
-            // if (file_exists($oldImage)) {
-            //     unlink($oldImage);
-            // }
 
-            // hapus gambar lama
+            // hapus gambar lama apabila ada
             if ($user->image && file_exists(storage_path('app/public/assets/images/photoprofile/' . $user->image))) {
                 unlink('public/assets/images/photoprofile/' . $user->image);
             }
 
+            // simpan gambar baru ke direktori publik dan db
             $image = $request->file('foto_profile');
             $imageName = time() . '_' . $image->getClientOriginalName();
             $image->move(public_path('assets/images/photoprofile'), $imageName);
             $user->foto_profile = $imageName;
         }
 
-        // update password akun admin
+        // mengecek apakah user merubah password
         if ($request->has('ubah_password')) {
             // Validasi password baru
             $validatedData['password'] = $request->validate([
                 'password' => 'required|string|min:8',
             ])['password'];
 
+            // update password akun admin
             $user->password = Hash::make($validatedData['password']);
             $user->save();
         }
