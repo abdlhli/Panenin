@@ -21,29 +21,41 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        $credentials = $request->validate([
+        $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
 
         $akun = Akun::where('email', $request->email)->first();
 
-        if (!$akun || !Hash::check($request->password, $akun->password)) {
-            return back()->withErrors([
-                'email' => 'Email atau Password yang diinputkan salah!',
-            ]);
+        if (!$akun) {
+            return back()
+                ->withErrors([
+                    'email' => 'Akun tidak terdaftar!',
+                ])
+                ->withInput();
+        }
+
+        if (!Hash::check($request->password, $akun->password)) {
+            return back()
+                ->withErrors([
+                    'email' => 'Email atau Password yang diinputkan salah!',
+                ])
+                ->withInput();
+        }
+
+        if ($akun->id_hak_akses != 1 && $akun->id_hak_akses != 2) {
+            return back()
+                ->withErrors([
+                    'email' => 'Anda tidak memiliki hak akses untuk login!',
+                ])
+                ->withInput();
         }
 
         Auth::login($akun);
         return redirect()->route('admin.dashboard');
     }
 
-    /**
-     * Destroy an authenticated session.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
-     */
     public function destroy(Request $request)
     {
         Auth::logout();

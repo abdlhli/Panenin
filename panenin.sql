@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 11, 2023 at 05:32 AM
+-- Generation Time: May 02, 2023 at 07:14 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -35,15 +35,44 @@ CREATE TABLE `akun` (
   `password` varchar(60) NOT NULL,
   `alamat` varchar(100) NOT NULL,
   `no_telp` varchar(20) NOT NULL,
-  `id_hak_akses` int(11) NOT NULL
+  `id_hak_akses` int(11) NOT NULL,
+  `foto_profile` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `akun`
 --
 
-INSERT INTO `akun` (`id_user`, `firstname`, `lastname`, `email`, `password`, `alamat`, `no_telp`, `id_hak_akses`) VALUES
-('ADM00001', 'Abdullah', 'Ali', 'abdullahali.and1@gmail.com', '$2y$10$WL/Q1/hMDktSSpyPlwW3qOof1jZhqfT11lwIpIHtrwpjrw9hv3536', 'Jl. Jawa No.48 Jember', '081233326540', 1);
+INSERT INTO `akun` (`id_user`, `firstname`, `lastname`, `email`, `password`, `alamat`, `no_telp`, `id_hak_akses`, `foto_profile`) VALUES
+('ADM00001', 'Abdullah', 'Ali', 'abdullahali.and1@gmail.com', '$2y$10$x8Qv5EUgAW4/H.cgQ91a/OOk466TBtXlvL9ycmae8zWlbuGFKqae.', 'Jl. Jawa No.48 Jember', '081233326540', 1, '1682790499_WhatsApp Image 2021-08-23 at 19.35.35.jpeg'),
+('ADM00002', 'Firmansyah', 'Fikriawan', 'firman@gmail.com', '$2y$10$x59JPjsJ/mLx5ZFO2oEDvu80YjD1lgBNgnKoLKs9RshJPp.5oDtAa', 'Bondowoso', '081234567890', 2, '1682790646_a.gif'),
+('ADM00003', 'asdas', 'dwadwa', 'coba@coab.cob', '$2y$10$7l3axk3XyU0RZwciQZxOkOjHY2fbSkfsurzILmygVSZcq/DVpQWm2', 'asdasda', '08123456789', 2, ''),
+('PLG00001', 'Alvin', 'Jentara', 'alvin@gmail.com', '$2y$10$x59JPjsJ/mLx5ZFO2oEDvu80YjD1lgBNgnKoLKs9RshJPp.5oDtAa', 'Puger', '081234567890', 3, ''),
+('PLG00002', 'Moehammad', 'Tegar', 'tegey@gmail.com', '$2y$10$x59JPjsJ/mLx5ZFO2oEDvu80YjD1lgBNgnKoLKs9RshJPp.5oDtAa', 'Puger', '081234567890', 3, ''),
+('PLG00003', 'Zulfianti', 'Rahmawati', 'fifi@gmail.com', '$2y$10$x59JPjsJ/mLx5ZFO2oEDvu80YjD1lgBNgnKoLKs9RshJPp.5oDtAa', 'Probolinggo', '081234567890', 3, '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `banner`
+--
+
+CREATE TABLE `banner` (
+  `id_banner` char(255) NOT NULL,
+  `nama_banner` varchar(255) NOT NULL,
+  `foto_banner` varchar(255) NOT NULL,
+  `tgl_banner` date NOT NULL DEFAULT current_timestamp(),
+  `status` enum('Active','Inactive') DEFAULT 'Active',
+  `id_user` char(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `banner`
+--
+
+INSERT INTO `banner` (`id_banner`, `nama_banner`, `foto_banner`, `tgl_banner`, `status`, `id_user`) VALUES
+('BNR00001', 'Coba', '1682913284_ashwathama_water_gushing_through_a_large_door_way_into_a_rock_w_cef9c206-f6ad-492c-beb2-549f8561b018.png', '2023-05-01', 'Active', 'ADM00001'),
+('BNR00002', 'Coba Lagi', '1682913715_GhostWind_landscape_Arizona_mesa_canyon_rays_of_shimmering_ligh_eaa78443-594e-47f5-919b-66e0d1c9bad1.png', '2023-05-01', 'Inactive', 'ADM00001');
 
 -- --------------------------------------------------------
 
@@ -57,22 +86,6 @@ CREATE TABLE `detail_pembelian` (
   `jumlah_produk` char(10) NOT NULL,
   `total_harga_produk` varchar(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `failed_jobs`
---
-
-CREATE TABLE `failed_jobs` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -91,7 +104,8 @@ CREATE TABLE `hak_akses` (
 
 INSERT INTO `hak_akses` (`id_hak_akses`, `hak_akses`) VALUES
 (1, 'Admin'),
-(2, 'Pelanggan');
+(2, 'Operator'),
+(3, 'Pelanggan');
 
 -- --------------------------------------------------------
 
@@ -129,18 +143,6 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `password_resets`
---
-
-CREATE TABLE `password_resets` (
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `pembelian`
 --
 
@@ -150,24 +152,6 @@ CREATE TABLE `pembelian` (
   `total_harga_pembelian` varchar(12) NOT NULL,
   `id_user` char(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `personal_access_tokens`
---
-
-CREATE TABLE `personal_access_tokens` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `tokenable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tokenable_id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `abilities` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `last_used_at` timestamp NULL DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -183,36 +167,6 @@ CREATE TABLE `produk` (
   `id_jenis_produk` char(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `spanduk`
---
-
-CREATE TABLE `spanduk` (
-  `id_spanduk` int(11) NOT NULL,
-  `tgl_spanduk` date NOT NULL DEFAULT current_timestamp(),
-  `foto_spanduk` varchar(255) NOT NULL,
-  `id_user` char(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `users`
---
-
-CREATE TABLE `users` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
 --
 -- Indexes for dumped tables
 --
@@ -225,18 +179,18 @@ ALTER TABLE `akun`
   ADD KEY `id_hak_akses` (`id_hak_akses`);
 
 --
+-- Indexes for table `banner`
+--
+ALTER TABLE `banner`
+  ADD PRIMARY KEY (`id_banner`),
+  ADD KEY `id_user` (`id_user`);
+
+--
 -- Indexes for table `detail_pembelian`
 --
 ALTER TABLE `detail_pembelian`
   ADD KEY `id_pembelian` (`id_pembelian`),
   ADD KEY `id_produk` (`id_produk`);
-
---
--- Indexes for table `failed_jobs`
---
-ALTER TABLE `failed_jobs`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
 -- Indexes for table `hak_akses`
@@ -257,25 +211,11 @@ ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `password_resets`
---
-ALTER TABLE `password_resets`
-  ADD KEY `password_resets_email_index` (`email`);
-
---
 -- Indexes for table `pembelian`
 --
 ALTER TABLE `pembelian`
   ADD PRIMARY KEY (`id_pembelian`),
   ADD KEY `id_user` (`id_user`);
-
---
--- Indexes for table `personal_access_tokens`
---
-ALTER TABLE `personal_access_tokens`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
-  ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
 -- Indexes for table `produk`
@@ -285,28 +225,8 @@ ALTER TABLE `produk`
   ADD KEY `id_jenis_produk` (`id_jenis_produk`);
 
 --
--- Indexes for table `spanduk`
---
-ALTER TABLE `spanduk`
-  ADD PRIMARY KEY (`id_spanduk`),
-  ADD KEY `id_user` (`id_user`);
-
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `users_email_unique` (`email`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
-
---
--- AUTO_INCREMENT for table `failed_jobs`
---
-ALTER TABLE `failed_jobs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `hak_akses`
@@ -321,24 +241,6 @@ ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `personal_access_tokens`
---
-ALTER TABLE `personal_access_tokens`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `spanduk`
---
-ALTER TABLE `spanduk`
-  MODIFY `id_spanduk` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
 -- Constraints for dumped tables
 --
 
@@ -347,6 +249,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `akun`
   ADD CONSTRAINT `akun_ibfk_1` FOREIGN KEY (`id_hak_akses`) REFERENCES `hak_akses` (`id_hak_akses`);
+
+--
+-- Constraints for table `banner`
+--
+ALTER TABLE `banner`
+  ADD CONSTRAINT `banner_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `akun` (`id_user`);
 
 --
 -- Constraints for table `detail_pembelian`
@@ -366,12 +274,6 @@ ALTER TABLE `pembelian`
 --
 ALTER TABLE `produk`
   ADD CONSTRAINT `produk_ibfk_1` FOREIGN KEY (`id_jenis_produk`) REFERENCES `jenis_produk` (`id_jenis_produk`);
-
---
--- Constraints for table `spanduk`
---
-ALTER TABLE `spanduk`
-  ADD CONSTRAINT `spanduk_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `akun` (`id_user`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

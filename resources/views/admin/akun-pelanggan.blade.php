@@ -19,6 +19,7 @@
         </div>
         <div>
             @livewire('users-table')
+
         </div>
     </div>
 
