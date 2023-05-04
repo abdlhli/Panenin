@@ -13,10 +13,10 @@ class AdminController extends Controller
         $validatedData = $request->validate([
             'firstname' => 'required|string|max:255',
             'lastname' => 'required|string|max:255',
-            'email' => 'required|string|max:255|unique:users',
+            'email' => 'required|string|max:255|unique:akun',
             'password' => 'required|string|min:8',
-            'alamat' => 'required|string|max:255',
-            'no_telp' => 'required|string|max:255',
+            'alamat' => 'nullable|string|max:255',
+            'no_telp' => 'nullable|string|max:255',
             'id_hak_akses' => 'required'
         ]);
 
@@ -29,6 +29,7 @@ class AdminController extends Controller
             'alamat' => $validatedData['alamat'],
             'no_telp' => $validatedData['no_telp'],
             'id_hak_akses' => $validatedData['id_hak_akses'],
+            'foto_profile' => 'defaultprofile.png'
         ]);
 
         // redirect ke halaman setelah berhasil login
@@ -40,13 +41,13 @@ class AdminController extends Controller
 
         // validasi data
         $validatedData = $request->validate([
-            'firstname' => 'required|string|max:255',
-            'lastname' => 'required|string|max:255',
-            'email' => 'required|string|max:255',
+            // 'firstname' => 'required|string|max:255',
+            // 'lastname' => 'required|string|max:255',
+            // 'email' => 'required|string|email|max:255',
             'password' => 'nullable|string|min:8',
-            'alamat' => 'required|string|max:255',
-            'no_telp' => 'required|string|max:255',
-            'id_hak_akses' => 'required'
+            // 'alamat' => 'required|string|max:255',
+            // 'no_telp' => 'required|string|max:255',
+            'id_hak_akses' => 'required|int'
         ]);
 
         // ambil data user berdasarkan id
@@ -54,11 +55,11 @@ class AdminController extends Controller
 
         // update data user
         $user->update([
-            'firstname' => $validatedData['firstname'],
-            'lastname' => $validatedData['lastname'],
-            'email' => $validatedData['email'],
-            'alamat' => $validatedData['alamat'],
-            'no_telp' => $validatedData['no_telp'],
+            // 'firstname' => $validatedData['firstname'],
+            // 'lastname' => $validatedData['lastname'],
+            // 'email' => $validatedData['email'],
+            // 'alamat' => $validatedData['alamat'],
+            // 'no_telp' => $validatedData['no_telp'],
             'id_hak_akses' => $validatedData['id_hak_akses'],
         ]);
 

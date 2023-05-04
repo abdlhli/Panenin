@@ -154,7 +154,7 @@
         </div>
 
         <!-- memberikan info singkat keungan -->
-        <div class="grid grid-cols-2 gap-4">
+        <div class="grid grid-cols-2 gap-4 pb-10">
             <!-- grid kiri -->
             <div class="p-4">
                 <div class="mt-14">
