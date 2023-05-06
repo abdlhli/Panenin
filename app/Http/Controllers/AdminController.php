@@ -68,8 +68,10 @@ class AdminController extends Controller
             $user->update([
                 'password' => bcrypt($validatedData['password'])
             ]);
+            $user->save();
         }
 
+        $user->save();
         // redirect ke halaman setelah berhasil update
         return redirect()->back()->with('success', 'Data berhasil diupdate!');
     }

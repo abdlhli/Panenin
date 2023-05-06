@@ -18,7 +18,7 @@
                 <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Edit Akun Admin</h3>
                 <form method="POST" action="{{ route('akun.update', $user->id_user) }}">
                     @csrf
-                    @method('POST')
+                    @method('PUT')
                     <div class="grid md:grid-cols-2 md:gap-6">
                         {{-- <div class="mb-6"> --}}
                         {{-- <div>
@@ -70,7 +70,6 @@
                             </div>
                             <input type="password" id="password" name="password" value="{{ $user->password }}"
                                 minlength="8"
-                                oninvalid="this.setCustomValidity('Password harus diisi minimal 8 karakter')"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         </div>
                     </div>
@@ -113,7 +112,9 @@
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select Role</label>
                         <select id="id_hak_akses" name="id_hak_akses"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option hidden selected> {{ $user->nama_hak_akses }} </option>
+                            <option hidden selected value="{{ $user->id_hak_akses }}"> -= Pilih Jika Ingin Merubah Role
+                                =-
+                            </option>
                             <option value="1">Admin</option>
                             <option value="2">Operator</option>
                         </select>

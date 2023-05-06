@@ -16,6 +16,6 @@ class HakAkses extends Model
     // definisi relasi antar tabel
     public function relasiHakAksesKeAkun()
     {
-        return $this->belongsTo(HakAkses::class, 'id_hak_akses');
+        return $this->belongsTo(Akun::class, 'id_user');
     }
 }

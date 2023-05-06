@@ -90,37 +90,73 @@
                                         </svg>
                                         <span class="mx-1 pr-2">Show</span>
                                     </button>
-                                    <button id="TombolModalEditAkunAdmin"
-                                        data-modal-toggle="ModalEditAkunAdmin{{ $user->id_user }}"
-                                        class="flex items-center bg-gray-200 hover:bg-gray-100 text-gray-500 hover:text-green-500 font-semibold py-1 px-4 mx-1 border border-gray-300 rounded shadow">
-                                        <svg class="mx-1 stroke-current hover:text-green-500"
-                                            xmlns="http://www.w3.org/2000/svg" width="12" height="12"
-                                            viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1"
-                                            stroke-linecap="round" stroke-linejoin="round">
-                                            <path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34">
-                                            </path>
-                                            <polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon>
-                                        </svg>
-                                        <span class="mx-1 pr-2">Edit</span>
-                                    </button>
-                                    <button id="TombolModalDeleteAkunAdmin"
-                                        data-modal-toggle="ModalDeleteAkunAdmin{{ $user->id_user }}"
-                                        class="flex items-center bg-gray-200 hover:bg-gray-100 text-gray-500 hover:text-red-500 font-semibold py-1 px-4 mx-1 border border-gray-300 rounded shadow">
-                                        <svg class="mx-1 stroke-current hover:text-red-500"
-                                            xmlns="http://www.w3.org/2000/svg" width="12" height="12"
-                                            viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1"
-                                            stroke-linecap="round" stroke-linejoin="round">
-                                            <polyline points="3 6 5 6 21 6"></polyline>
-                                            <path
-                                                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
-                                            </path>
-                                            <line x1="10" y1="11" x2="10" y2="17">
-                                            </line>
-                                            <line x1="14" y1="11" x2="14" y2="17">
-                                            </line>
-                                        </svg>
-                                        <span class="mx-1 pr-2">Delete</span>
-                                    </button>
+                                    @if (auth()->user()->id_hak_akses == 1)
+                                        <button id="TombolModalEditAkunAdmin"
+                                            data-modal-toggle="ModalEditAkunAdmin{{ $user->id_user }}"
+                                            class="flex items-center bg-gray-200 hover:bg-gray-100 text-gray-500 hover:text-green-500 font-semibold py-1 px-4 mx-1 border border-gray-300 rounded shadow">
+                                            <svg class="mx-1 stroke-current hover:text-green-500"
+                                                xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                                                viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1"
+                                                stroke-linecap="round" stroke-linejoin="round">
+                                                <path
+                                                    d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34">
+                                                </path>
+                                                <polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon>
+                                            </svg>
+                                            <span class="mx-1 pr-2">Edit</span>
+                                        </button>
+                                        <button id="TombolModalDeleteAkunAdmin"
+                                            data-modal-toggle="ModalDeleteAkunAdmin{{ $user->id_user }}"
+                                            class="flex items-center bg-gray-200 hover:bg-gray-100 text-gray-500 hover:text-red-500 font-semibold py-1 px-4 mx-1 border border-gray-300 rounded shadow">
+                                            <svg class="mx-1 stroke-current hover:text-red-500"
+                                                xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                                                viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1"
+                                                stroke-linecap="round" stroke-linejoin="round">
+                                                <polyline points="3 6 5 6 21 6"></polyline>
+                                                <path
+                                                    d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                                                </path>
+                                                <line x1="10" y1="11" x2="10" y2="17">
+                                                </line>
+                                                <line x1="14" y1="11" x2="14" y2="17">
+                                                </line>
+                                            </svg>
+                                            <span class="mx-1 pr-2">Delete</span>
+                                        </button>
+                                    @else
+                                        <button id="TombolModalEditAkunAdmin" disabled
+                                            data-modal-toggle="ModalEditAkunAdmin"
+                                            class="cursor-not-allowed flex items-center bg-gray-200 text-gray-500 font-semibold py-1 px-4 mx-1 border border-gray-300 rounded shadow">
+                                            <svg class="mx-1 stroke-current" xmlns="http://www.w3.org/2000/svg"
+                                                width="12" height="12" viewBox="0 0 24 24" fill="none"
+                                                stroke="#000000" stroke-width="1" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                                <path
+                                                    d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34">
+                                                </path>
+                                                <polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon>
+                                            </svg>
+                                            <span class="mx-1 pr-2">Edit</span>
+                                        </button>
+                                        <button id="TombolModalDeleteAkunAdmin" disabled
+                                            data-modal-toggle="ModalDeleteAkunAdmin}"
+                                            class="cursor-not-allowed flex items-center bg-gray-200 text-gray-500 font-semibold py-1 px-4 mx-1 border border-gray-300 rounded shadow">
+                                            <svg class="mx-1 stroke-current" xmlns="http://www.w3.org/2000/svg"
+                                                width="12" height="12" viewBox="0 0 24 24" fill="none"
+                                                stroke="#000000" stroke-width="1" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                                <polyline points="3 6 5 6 21 6"></polyline>
+                                                <path
+                                                    d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                                                </path>
+                                                <line x1="10" y1="11" x2="10" y2="17">
+                                                </line>
+                                                <line x1="14" y1="11" x2="14" y2="17">
+                                                </line>
+                                            </svg>
+                                            <span class="mx-1 pr-2">Delete</span>
+                                        </button>
+                                    @endif
                                 </div>
                             </td>
                             <td>
