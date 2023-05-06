@@ -14,7 +14,7 @@ class UsersTable extends Component
         $akuns = Akun::where(function ($query) {
             $query->where('id_hak_akses', '=', '3');
         })
-            ->paginate(10);
+            ->paginate();
 
         return view('livewire.users-table', ['userspelanggan' => $userspelanggan, 'akuns' => $akuns]);
     }

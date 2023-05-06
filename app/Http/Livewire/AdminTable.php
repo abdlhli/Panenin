@@ -23,7 +23,7 @@ class AdminTable extends Component
             $query->where('id_hak_akses', '=', '1')
                 ->orWhere('id_hak_akses', '=', '2');
         })
-            ->paginate(10);
+            ->paginate();
 
 
         return view('livewire.admin-table', ['usersadmin' => $usersadmin, 'alladmin' => $alladmin,  'akuns' => $akuns]);

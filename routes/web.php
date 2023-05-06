@@ -6,6 +6,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\JenisProdukController;
+use App\Http\Controllers\ProdukController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +33,7 @@ Route::post('/update-account', [SettingsController::class, 'update'])->name('upd
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/tmbadmin', [AdminController::class, 'inputAdmin']);
 Route::post('/tambahBanner', [BannerController::class, 'inputBanner']);
+Route::post('/tambahJenisProduk', [JenisProdukController::class, 'tambahJenisProduk'])->name('tambahJenisProduk');
 
 Route::put('/akun/update/{id}', [AdminController::class, 'update'])->name('akun.update');
 Route::put('/banners/{id}', [BannerController::class, 'updateBanner'])->name('banners.update');
@@ -42,6 +45,7 @@ Route::post('/logout', [AuthController::class, 'destroy'])
 Route::delete('/admin/hapus/{id_user}', [AdminController::class, 'hapus'])->name('admin.hapus');
 Route::delete('/user/hapus/{id_user}', [UserController::class, 'hapus'])->name('user.hapus');
 Route::delete('/banners/{id_banner}', [BannerController::class, 'destroy'])->name('banners.destroy');
+Route::delete('/jenisproduk/hapus/{id_jenis_produk}', [JenisProdukController::class, 'hapus'])->name('jenisproduk.hapus');
 
 Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::get('dashboard', function () {
