@@ -135,9 +135,9 @@
                             </td>
                         </tr>
                         <!-- Modal Untuk Show, Edit, Dan Delete -->
-                        @include('components.ModalShowAdmin')
-                        @include('components.ModalUpdateAdmin')
-                        @include('components.ModalDeleteAdmin')
+                        @include('components.admin.ModalShowAdmin')
+                        @include('components.admin.ModalUpdateAdmin')
+                        @include('components.admin.ModalDeleteAdmin')
                     @endforeach
                 </tbody>
             </table>

@@ -103,8 +103,8 @@
                             </td>
                         </tr>
                         <!-- Modal Untuk Show, Edit, Dan Delete -->
-                        @include('components.ModalShowUser')
-                        @include('components.ModalDeleteUser')
+                        @include('components.user.ModalShowUser')
+                        @include('components.user.ModalDeleteUser')
                     @endforeach
                 </tbody>
             </table>

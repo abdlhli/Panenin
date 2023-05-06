@@ -20,7 +20,7 @@
     @include('components.sidebar')
     <div class="pl-4 sm:ml-64">
         @livewire('banner-table')
-        @include('components.ModalTambahBanner')
+        @include('components.banner.ModalTambahBanner')
     </div>
 
 

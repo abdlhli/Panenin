@@ -156,8 +156,8 @@
                             </div>
                         </td>
                     </tr>
-                    @include('components.ModalUpdateBanner')
-                    @include('components.ModalDeleteBanner')
+                    @include('components.banner.ModalUpdateBanner')
+                    @include('components.banner.ModalDeleteBanner')
                 @endforeach
             </tbody>
         </table>
