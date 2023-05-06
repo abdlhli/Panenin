@@ -38,13 +38,14 @@ class BannerController extends Controller
         }
     }
 
-    public function updateStatus(Request $request, $id)
+    public function updateBanner(Request $request, $id)
     {
         $banner = Banner::findOrFail($id);
+        $banner->nama_banner = $request->nama_banner;
         $banner->status = $request->status;
         $banner->save();
-    
-        return response()->json(['status' => $banner->status]);
+
+        return redirect()->back();
     }
 
     public function destroy($id)

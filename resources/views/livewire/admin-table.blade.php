@@ -107,7 +107,7 @@
                                                     </path>
                                                     <polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon>
                                                 </svg>
-                                                <span class="mx-1 pr-2">Edit</span>
+                                                <span class="mx-1 pr-2">Update</span>
                                             </button>
                                             <button id="TombolModalDeleteAkunAdmin"
                                                 data-modal-toggle="ModalDeleteAkunAdmin{{ $user->id_user }}"
@@ -136,7 +136,7 @@
                         </tr>
                         <!-- Modal Untuk Show, Edit, Dan Delete -->
                         @include('components.ModalShowAdmin')
-                        @include('components.ModalEditAdmin')
+                        @include('components.ModalUpdateAdmin')
                         @include('components.ModalDeleteAdmin')
                     @endforeach
                 </tbody>

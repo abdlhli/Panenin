@@ -8,6 +8,9 @@
 
     <link href="@vite(['resources/css/app.css', 'resources/js/app.js'])">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"
+        integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <script>
@@ -209,4 +212,17 @@
             <!-- bagian kanan bawah kosong -->
             <!-- grid kiri bawah-->
         </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
+        integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        // Toast ketika berhasil melakukan tambah banner
+        toastr.options.progressBar = true;
+        @if (Session::has('berhasilLogin'))
+            toastr.success("{{ Session::get('berhasilLogin') }}")
+        @endif
+    </script>
 </body>

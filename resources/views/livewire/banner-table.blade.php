@@ -16,16 +16,18 @@
                     <div id="default-carousel" class="relative w-full" data-carousel="slide">
                         <!-- Carousel wrapper -->
                         @foreach ($banners as $banner)
-                            <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
-                                <!-- Item -->
-                                <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                    <a href="{{ asset('assets/images/banner/' . $banner->foto_banner) }}"
-                                        data-lightbox="carousel">
-                                        <img src="{{ asset('assets/images/banner/' . $banner->foto_banner) }}"
-                                            class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                                            alt="...">
-                                    </a>
-                                </div>
+                            @if ($banner->status == 'Aktif')
+                                <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+                                    <!-- Item -->
+                                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                        <a href="{{ asset('assets/images/banner/' . $banner->foto_banner) }}"
+                                            data-lightbox="carousel">
+                                            <img src="{{ asset('assets/images/banner/' . $banner->foto_banner) }}"
+                                                class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                                alt="...">
+                                        </a>
+                                    </div>
+                            @endif
                         @endforeach
                     </div>
                     <button type="button"
@@ -71,7 +73,7 @@
                     <path clip-rule="evenodd" fill-rule="evenodd"
                         d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" />
                 </svg>
-                Tambah User
+                Tambah Banner
             </button>
         </div>
     </div>
@@ -83,6 +85,8 @@
                 Tabel Informasi Banner
                 <p class="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">Tabel berisi informasi banner
                     yang ditambahkan untuk ditampilkan pada landing page dan mobile apps</p>
+                <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium"></span>
+                    *Wajib Mengaktifkan Minimal 2 Foto</p>
             </caption>
             <thead class="text-xs text-white uppercase bg-gray-50">
                 <tr>
@@ -91,6 +95,7 @@
                     <th scope="col" class="px-4 py-3 bg-green-900">Nama</th>
                     <th scope="col" class="px-4 py-3 bg-green-900">Tanggal Upload</th>
                     <th scope="col" class="px-4 py-3 bg-green-900">Upload By</th>
+                    <th scope="col" class="px-4 py-3 bg-green-900">Status</th>
                     <th scope="col" class="px-4 py-3 bg-green-900">Actions</th>
                 </tr>
             </thead>
@@ -112,22 +117,23 @@
                         <td class="px-4 py-3">{{ $banner->tgl_banner }}</td>
                         <td class="px-4 py-3">{{ $banner->relasiBannerKeAkun->firstname }}
                             {{ $banner->relasiBannerKeAkun->lastname }}</td>
+                        <td class="px-4 py-3">{{ $banner->status }}</td>
                         <td class="py-3">
                             <div class="flex items-center justify-start">
                                 <div class="flex px-4">
-                                    <label class="relative inline-flex items-center cursor-pointer">
-                                        <input type="checkbox" name="status"
-                                            value="{{ $banner->status === 'Active' ? 'Inactive' : 'Active' }}"
-                                            class="toggle-status sr-only peer" data-id="{{ $banner->id }}"
-                                            {{ $banner->status === 'Active' ? 'checked' : '' }}>
-                                        <div
-                                            class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
-                                        </div>
-                                        <span
-                                            class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">{{ $banner->status }}</span>
-                                    </label>
-                                </div>
-                                <div class="flex px-4">
+                                    <button id="TombolModalUpdateBanner"
+                                        data-modal-toggle="ModalUpdateBanner{{ $banner->id_banner }}"
+                                        class="flex items-center bg-gray-200 hover:bg-gray-100 text-gray-500 hover:text-green-500 font-semibold py-1 px-4 mx-1 border border-gray-300 rounded shadow">
+                                        <svg class="mx-1 stroke-current hover:text-green-500"
+                                            xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                                            viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34">
+                                            </path>
+                                            <polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon>
+                                        </svg>
+                                        <span class="mx-1 pr-2">Update</span>
+                                    </button>
                                     <button id="TombolModalDeleteBanner"
                                         data-modal-toggle="ModalDeleteBanner{{ $banner->id_banner }}"
                                         class="flex items-center bg-gray-200 hover:bg-gray-100 text-gray-500 hover:text-red-500 font-semibold py-1 px-4 mx-1 border border-gray-300 rounded shadow">
@@ -150,6 +156,7 @@
                             </div>
                         </td>
                     </tr>
+                    @include('components.ModalUpdateBanner')
                     @include('components.ModalDeleteBanner')
                 @endforeach
             </tbody>
@@ -169,28 +176,4 @@
         }
         reader.readAsDataURL(event.target.files[0]);
     }
-
-    const toggleStatuses = document.querySelectorAll('.toggle-status');
-
-    toggleStatuses.forEach(toggleStatus => {
-        toggleStatus.addEventListener('click', (e) => {
-            const status = e.target.value;
-            const id = e.target.dataset.id;
-
-            // kirim request ke server untuk mengubah status di database
-            axios.post(`/banners/${id}/status`, {
-                    status: status
-                })
-                .then(response => {
-                    // update tampilan tombol toggle sesuai dengan respons dari server
-                    const statusLabel = e.target.nextElementSibling;
-                    statusLabel.textContent = response.data.status;
-                    e.target.value = response.data.status === 'Active' ? 'Inactive' : 'Active';
-                    e.target.checked = response.data.status === 'Active';
-                })
-                .catch(error => {
-                    console.log(error);
-                });
-        });
-    });
 </script>

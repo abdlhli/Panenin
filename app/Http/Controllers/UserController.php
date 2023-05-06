@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Akun;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
@@ -12,6 +13,8 @@ class UserController extends Controller
         $data = Akun::find($id);
         $data->delete();
 
-        return redirect()->back()->with('success', 'Data berhasil dihapus');
+
+        Session::flash('hapusUser', 'Akun berhasil dihapus!');
+        return redirect()->back();
     }
 }

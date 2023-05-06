@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Akun;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class AdminController extends Controller
 {
@@ -33,7 +34,8 @@ class AdminController extends Controller
         ]);
 
         // redirect ke halaman setelah berhasil login
-        return redirect()->back()->with('success', 'Data berhasil disimpan!');
+        Session::flash('tambahAdmin', 'Akun berhasil ditambahkan!');
+        return redirect()->back();
     }
 
     public function update(Request $request, $id)
@@ -73,7 +75,8 @@ class AdminController extends Controller
 
         $user->save();
         // redirect ke halaman setelah berhasil update
-        return redirect()->back()->with('success', 'Data berhasil diupdate!');
+        Session::flash('updateAdmin', 'Akun berhasil diupdate!');
+        return redirect()->back();
     }
 
     public function hapus($id)
@@ -81,6 +84,7 @@ class AdminController extends Controller
         $data = Akun::find($id);
         $data->delete();
 
-        return redirect()->back()->with('success', 'Data berhasil dihapus');
+        Session::flash('hapusAdmin', 'Akun berhasil dihapus!');
+        return redirect()->back();
     }
 }
