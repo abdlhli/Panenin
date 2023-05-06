@@ -21,7 +21,7 @@
     <div class="pl-4 sm:ml-64">
         <div>
             @livewire('admin-table')
-            @include('components.modaltmbadmin')
+            @include('components.ModalTambahAdmin')
         </div>
     </div>
 

@@ -34,7 +34,7 @@
             </p>
         </div>
     @endif
-    <div class="mt-32 max-w-7xl mx-auto bg-white shadow-lg flex space-x-32">
+    <div class="mt-32 max-w-5xl mx-auto bg-white shadow-lg flex space-x-20">
         <div class="relative">
             <div class="shrink-0">
                 <img class="rounded-r-2xl drop-shadow-2xl" src="/assets/images/background-card-login.png">
@@ -45,10 +45,9 @@
             </div>
         </div>
 
-        <div>
+        <div class="pr-16">
             <div class="flex justify-center pt-24 font-mono text-2xl text-green-800">Panenin.</div>
-            <p class="text-slate-500 pt-8 flex justify-center text-base">Login Admin Panenin.</p>
-
+            <p class="text-slate-500 pt-5 flex justify-center text-base">Login Admin Panenin.</p>
             <form method="POST" action="{{ route('login') }}">
                 @csrf
                 <div class="mt-6">
@@ -73,11 +72,8 @@
                     </div>
                 </div>
             </form>
-
         </div>
-
     </div>
-
 </body>
 
 </html>

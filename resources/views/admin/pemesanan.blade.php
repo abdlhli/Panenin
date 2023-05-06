@@ -2,7 +2,8 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    <title> Admin - Akun Management </title>
+    <title> Admin - Daftar Pemesanan </title>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="@vite(['resources/css/app.css', 'resources/js/app.js'])">
@@ -11,16 +12,14 @@
         integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
 </head>
 
 <body style="margin-top: 64px;">
     @include('components.navbar')
     @include('components.sidebar')
     <div class="pl-4 sm:ml-64">
-        <div class="p-4 mt-14">
-        </div>
         <div>
-            @livewire('users-table')
 
         </div>
     </div>
