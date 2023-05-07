@@ -13,9 +13,8 @@ class ProdukTable extends Component
     {
         // Mendapatkan semua data banner
         $this->produk = Produk::all();
-        $this->produk = Produk::paginate();
     }
-    
+
     public function render()
     {
         return view('livewire.produk-table');

@@ -98,11 +98,11 @@
                     <th scope="col" class="px-4 py-3 bg-green-900">Status</th>
                     <th scope="col" class="px-4 py-3 bg-green-900 flex justify-between items-center">
                         <span class="text-gray-100 dark:text-white">Actions</span>
-                        <span class="text-gray-100 dark:text-white text-right">
+                        {{-- <span class="text-gray-100 dark:text-white text-right">
                             Showing
                             <span class="text-gray-100 dark:text-white">{{ $banners->total() }}</span>
                             Entries
-                        </span>
+                        </span> --}}
                     </th>
                 </tr>
             </thead>

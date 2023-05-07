@@ -85,8 +85,9 @@
                                     </path>
                                 </svg>
                             </div>
-                            <input type="number" id="no_telp" name="no_telp" required
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <input type="text" id="harga_produk" name="harga_produk" required
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                onkeypress="return event.charCode >= 48 && event.charCode <= 57">
                         </div>
                     </div>
                     <div class="mb-6">
@@ -122,4 +123,4 @@
             </div>
         </div>
     </div>
-</div
+</div>

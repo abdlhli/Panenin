@@ -16,7 +16,7 @@
             </button>
             <div class="px-6 py-6 lg:px-8">
                 <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Tambah Jenis Product</h3>
-                <form method="POST" action="{{ route('tambahJenisProduk') }}" enctype="multipart/form-data">
+                <form method="POST" action="/tambahJenisProduk" enctype="multipart/form-data">
                     @csrf
                     <div>
                         <div class="mb-6">

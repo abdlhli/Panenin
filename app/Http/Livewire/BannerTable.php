@@ -13,7 +13,6 @@ class BannerTable extends Component
     {
         // Mendapatkan semua data banner
         $this->banners = Banner::all();
-        $this->banners = Banner::paginate();
     }
 
     public function render()

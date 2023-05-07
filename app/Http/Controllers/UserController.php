@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Akun;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -26,15 +27,24 @@ class UserController extends Controller
 
     public function addUser(Request $request)
     {
+        $validatedData = $request->validate([
+            'email' => 'required|email|unique:akuns,email',
+            'password' => 'required|string|min:8'
+        ], [
+            'email.unique' => 'Email already exists.',
+        ]);
+
         $user = new Akun();
         $user->firstname = $request->input('firstname');
         $user->lastname = $request->input('lastname');
-        $user->email = $request->input('email');
+        $user->email = $validatedData['email'];
         $user->password = bcrypt($request->input('password'));
         $user->alamat = $request->input('alamat');
         $user->no_telp = $request->input('no_telp');
-        $user->id_hak_akses = $request->input('3');
+        $user->id_hak_akses = $request->input('id_hak_akses', 3);
+        $user->foto_profile = $request->input('foto_profile', 'defaultprofile.png');
         $user->save();
+
         return response()->json(['message' => 'User added successfully', 'data' => $user], 201);
     }
 
