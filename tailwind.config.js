@@ -5,15 +5,12 @@ module.exports = {
         "./resources/**/*.js",
         "./resources/**/*.vue",
         "./node_modules/flowbite/**/*.js",
-        './pages/**/*.{html,js}',
-        './components/**/*.{html,js}',
+        "./pages/**/*.{html,js}",
+        "./components/**/*.{html,js}",
     ],
-    darkMode: 'class',
+    darkMode: "class",
     theme: {
         extend: {},
     },
-    plugins: [
-      require('flowbite/plugin')
-    ],
-    
+    plugins: [require("flowbite/plugin")],
 };

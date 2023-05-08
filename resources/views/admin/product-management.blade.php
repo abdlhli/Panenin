@@ -18,7 +18,7 @@
     @include('components.sidebar')
     <div class="pl-4 sm:ml-64">
         @livewire('produk-table')
-        {{-- @include('components.produk.ModalTambahProduk') --}}
+        @include('components.produk.ModalTambahProduk')
     </div>
 
     <script src="{{ asset('js/ajax.js') }}"></script>
