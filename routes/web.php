@@ -45,7 +45,7 @@ Route::put('/produk/{produk}', [ProdukController::class, 'update'])->name('produ
 Route::put('/banners/{id}', [BannerController::class, 'updateBanner'])->name('banners.update');
 
 Route::delete('/user/hapus/{id_user}', [UserController::class, 'hapus'])->name('user.hapus');
-Route::delete('/produk/{produk}', [ProdukController::class, 'destroy'])->name('produk.hapus');
+Route::delete('/produk/{produk}', [ProdukController::class, 'hapus'])->name('produk.hapus');
 Route::delete('/admin/hapus/{id_user}', [AdminController::class, 'hapus'])->name('admin.hapus');
 Route::delete('/banners/{id_banner}', [BannerController::class, 'destroy'])->name('banners.destroy');
 Route::delete('/jenisproduk/hapus/{id_jenis_produk}', [JenisProdukController::class, 'hapus'])->name('jenisproduk.hapus');

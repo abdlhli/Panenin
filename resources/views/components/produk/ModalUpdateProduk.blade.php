@@ -1,11 +1,11 @@
-<div id="ModalTambahProduk" tabindex="-1" aria-hidden="true" data-modal-backdrop="static"
+<div id="ModalUpdateProduk{{ $brng->id_produk }}" tabindex="-1" aria-hidden="true" data-modal-backdrop="static"
     class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative w-full max-w-lg max-h-full">
         <!-- Modal content -->
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
             <button type="button"
                 class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
-                data-modal-hide="ModalTambahProduk">
+                data-modal-hide="ModalUpdateProduk{{ $brng->id_produk }}">
                 <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd"
@@ -16,12 +16,15 @@
             </button>
             <div class="px-6 py-6 lg:px-8">
                 <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Tambah Produk</h3>
-                <form id="FormTmbProduk" method="POST" action="/tambahProduk" enctype="multipart/form-data">
+                <form id="FormTmbProduk" method="POST" action="{{ route('produk.update', $brng->id_produk) }}"
+                    enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
                     <div class="mb-6">
                         <label for="small-input"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Produk</label>
                         <input type="text" id="nama_produk" name="nama_produk" required
+                            value="{{ $brng->nama_produk }}"
                             class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     </div>
                     <div class="mb-6">
@@ -29,7 +32,7 @@
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Harga</label>
                         <div class="relative">
                             <input type="text" id="harga_produk" name="harga_produk" required minlength="4"
-                                maxlength="11"
+                                maxlength="11" value="{{ $brng->harga_produk }}"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 onkeypress="return event.charCode >= 48 && event.charCode <= 57">
                         </div>
@@ -39,6 +42,7 @@
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Stock</label>
                         <div class="relative">
                             <input type="text" id="stock_produk" name="stock_produk" required maxlength="4"
+                                value="{{ $brng->stock_produk }}"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 onkeypress="return event.charCode >= 48 && event.charCode <= 57">
                         </div>
@@ -48,15 +52,17 @@
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kategori</label>
                         <select id="id_jenis_produk" name="id_jenis_produk" required
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option value="" selected disabled hidden>-= Pilih Kategori Produk =-</option>
+                            <option value="{{ $brng->id_jenis_produk }}" selected hidden>-= Pilih Kategori
+                                Produk
+                                =-</option>
                             @foreach (\App\Models\JenisProduk::pluck('nama_jenis_produk', 'id_jenis_produk') as $key => $value)
                                 <option value="{{ $key }}">{{ $value }}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="flex justify-center mb-6">
-                        <img class="w-full h-2/4" src="{{ asset('assets/images/no_preview.png') }}" alt="no preview"
-                            id="previewTMB">
+                        <img class="w-full h-2/4" src="{{ asset('assets/images/photoproduk/' . $brng->foto_produk) }}"
+                            alt="no preview" id="preview">
                     </div>
                     <div class="mb-6 flex-grow col-span-2">
                         <label for="foto_produk"
@@ -75,7 +81,7 @@
                                     (Saran 16 : 9)</p>
                             </div>
                             <input id="foto_produk" type="file" class="hidden" name="foto_produk"
-                                onchange="previewImageTMB(event)" required />
+                                onchange="previewImage(event)" />
                         </label>
                         <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium"></span>
                             *Wajib Menginputkan Foto</p>
@@ -94,10 +100,10 @@
 
 <script>
     // preview setelah mengambil gambar foto profile
-    function previewImageTMB(event) {
+    function previewImage(event) {
         var reader = new FileReader();
         reader.onload = function() {
-            var output = document.getElementById('previewTMB');
+            var output = document.getElementById('preview');
             output.src = reader.result;
         }
         reader.readAsDataURL(event.target.files[0]);

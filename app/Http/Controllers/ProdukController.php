@@ -75,6 +75,12 @@ class ProdukController extends Controller
     public function hapus($id)
     {
         $produk = Produk::find($id);
+        $fotoProdukPath = public_path('assets/images/photoproduk/' . $produk->foto_produk);
+
+        if (file_exists($fotoProdukPath)) {
+            unlink($fotoProdukPath);
+        }
+
         $produk->delete();
 
         Session::flash('hapusproduk', 'Produk berhasil dihapus!');

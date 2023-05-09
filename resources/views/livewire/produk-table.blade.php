@@ -51,7 +51,7 @@
                         <th scope="col" class="px-4 py-3 bg-green-900">Product Name</th>
                         <th scope="col" class="px-4 py-3 bg-green-900">Category</th>
                         <th scope="col" class="px-4 py-3 bg-green-900">Price</th>
-                        <th scope="col" class="px-4 py-3 bg-green-900">Piece</th>
+                        <th scope="col" class="px-4 py-3 bg-green-900">Stock</th>
                         <th scope="col" class="px-4 py-3 bg-green-900 flex justify-between items-center">
                             <span class="text-gray-100 dark:text-white">Actions</span>
                             {{-- <span class="text-gray-100 dark:text-white text-right">
@@ -76,8 +76,8 @@
                             <td class="px-4 py-3 font-medium">{{ $brng->stock_produk }}</td>
                             <td class="py-3">
                                 <div class="flex px-3">
-                                    <button id="TombolModalEditProduk"
-                                        data-modal-toggle="ModalEditProduk{{ $brng->id_produk }}"
+                                    <button id="TombolModalUpdateProduk"
+                                        data-modal-toggle="ModalUpdateProduk{{ $brng->id_produk }}"
                                         class="flex items-center bg-gray-200 hover:bg-gray-100 text-gray-500 hover:text-green-500 font-semibold py-1 px-4 mx-1 border border-gray-300 rounded shadow">
                                         <svg class="mx-1 stroke-current hover:text-green-500"
                                             xmlns="http://www.w3.org/2000/svg" width="12" height="12"
@@ -111,8 +111,8 @@
                             </td>
                         </tr>
                         <!-- Modal Untuk Show, Edit, Dan Delete -->
-                        {{-- @include('components.produk.ModalUpdateProduk') --}}
-                        {{-- @include('components.Produk.ModalDeleteProduk') --}}
+                        @include('components.produk.ModalUpdateProduk')
+                        @include('components.Produk.ModalDeleteProduk')
                     @endforeach
                 </tbody>
             </table>
