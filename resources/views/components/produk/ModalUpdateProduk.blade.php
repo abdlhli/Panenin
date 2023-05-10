@@ -15,7 +15,7 @@
                 <span class="sr-only">Close modal</span>
             </button>
             <div class="px-6 py-6 lg:px-8">
-                <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Tambah Produk</h3>
+                <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Update Produk</h3>
                 <form id="FormTmbProduk" method="POST" action="{{ route('produk.update', $brng->id_produk) }}"
                     enctype="multipart/form-data">
                     @csrf
@@ -52,7 +52,8 @@
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kategori</label>
                         <select id="id_jenis_produk" name="id_jenis_produk" required
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option value="{{ $brng->id_jenis_produk }}" selected hidden>-= Pilih Kategori
+                            <option value="{{ $brng->id_jenis_produk }}" selected hidden>-= Pilih Jika Ingin Merubah
+                                Kategori
                                 Produk
                                 =-</option>
                             @foreach (\App\Models\JenisProduk::pluck('nama_jenis_produk', 'id_jenis_produk') as $key => $value)
@@ -83,14 +84,14 @@
                             <input id="foto_produk" type="file" class="hidden" name="foto_produk"
                                 onchange="previewImage(event)" />
                         </label>
-                        <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium"></span>
-                            *Wajib Menginputkan Foto</p>
+                        {{-- <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium"></span>
+                            *Wajib Menginputkan Foto</p> --}}
                         @error('image')
                             <p class="text-red-500 mt-2 text-xs">{{ $message }}</p>
                         @enderror
                     </div>
                     <button type="submit"
-                        class="text-white bg-green-900 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Tambah
+                        class="text-white bg-green-900 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Update
                         Produk</button>
                 </form>
             </div>

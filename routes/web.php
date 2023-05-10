@@ -20,7 +20,7 @@ use App\Http\Controllers\ProdukController;
 |
 */
 
-// Membuat dan Menampilkan rute view landing page
+// Membuat dan Menampilkan route view landing page
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
@@ -32,7 +32,7 @@ Route::post('/logout', [AuthController::class, 'destroy'])
     ->middleware('auth')
     ->name('logout');
 
-// Mendapatkan rute fungsi query
+// Mendapatkan route fungsi query
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/tambahProduk', [ProdukController::class, 'store']);
 Route::post('/tmbadmin', [AdminController::class, 'inputAdmin']);
