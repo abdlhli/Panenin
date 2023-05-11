@@ -92,6 +92,7 @@
             toastr.success("{{ Session::get('logout') }}")
         </script>
     @endif
+
 </body>
 
 </html>

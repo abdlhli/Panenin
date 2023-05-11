@@ -28,7 +28,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
         integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        // Toast ketika berhasil melakukan tambah banner
+        toastr.options.progressBar = true;
+        @if (Session::has('tambahproduk'))
+            toastr.success("{{ Session::get('tambahproduk') }}")
+        @endif
 
+        @if (Session::has('updateproduk'))
+            toastr.success("{{ Session::get('updateproduk') }}")
+        @endif
+
+        @if (Session::has('hapusproduk'))
+            toastr.success("{{ Session::get('hapusproduk') }}")
+        @endif
+    </script>
     @if ($errors->any())
         <script>
             toastr.error(

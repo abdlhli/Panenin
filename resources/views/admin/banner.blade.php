@@ -46,4 +46,12 @@
             toastr.success("{{ Session::get('successDelete') }}")
         @endif
     </script>
+
+    @if ($errors->any())
+        <script>
+            toastr.error(
+                '<ul>@foreach ($errors->all() as $error)<li>{{ $error }}</li>@endforeach</ul>'
+            );
+        </script>
+    @endif
 </body>

@@ -31,4 +31,11 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{{ asset('js/ajax.js') }}"></script>
 
+    @if ($errors->any())
+        <script>
+            toastr.error(
+                '<ul>@foreach ($errors->all() as $error)<li>{{ $error }}</li>@endforeach</ul>'
+            );
+        </script>
+    @endif
 </body>

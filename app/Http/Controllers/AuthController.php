@@ -69,4 +69,24 @@ class AuthController extends Controller
         Session::flash('logout', 'Logout Berhasil!');
         return redirect('/login');
     }
+
+    public function loginMobile(Request $request)
+    {
+        $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+
+        $akun = Akun::where('email', $request->email)->first();
+
+        if (!$akun) {
+            return response()->json(['message' => 'Akun tidak terdaftar!'], 404);
+        }
+
+        if (!Hash::check($request->password, $akun->password)) {
+            return response()->json(['message' => 'Email atau Password yang diinputkan salah!'], 404);
+        }
+
+        return response()->json(['data' => $akun, 'message' => 'Login Berhasil'], 200);
+    }
 }
