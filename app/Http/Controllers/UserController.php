@@ -29,11 +29,15 @@ class UserController extends Controller
     public function addUser(Request $request)
     {
         $validatedData = $request->validate([
-            'email' => 'required|email|unique:akuns,email',
+            'email' => 'required|email',
             'password' => 'required|string|min:8'
-        ], [
-            'email.unique' => 'Email already exists.',
         ]);
+
+        $userExists = Akun::where('email', $validatedData['email'])->exists();
+
+        if ($userExists) {
+            return response()->json(['message' => 'Email sudah terdaftar'], 400);
+        }
 
         $user = new Akun();
         $user->firstname = $request->input('firstname');

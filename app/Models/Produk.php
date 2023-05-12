@@ -19,6 +19,7 @@ class Produk extends Model
         'id_produk',
         'nama_produk',
         'harga_produk',
+        'satuan_produk',
         'stock_produk',
         'foto_produk',
         'id_jenis_produk'

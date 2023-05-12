@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProdukController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,10 @@ use App\Http\Controllers\AuthController;
 
 Route::get('/users', [UserController::class, 'getAllUser']);
 Route::get('/users/{id}', [UserController::class, 'getUserById']);
+Route::get('/produk', [ProdukController::class, 'getAllProduk']);
+Route::get('/produk/{id}', [ProdukController::class, 'getProdukById']);
 Route::post('/login', [AuthController::class, 'loginMobile']);
+Route::post('/adduser', [UserController::class, 'addUser']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

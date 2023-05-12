@@ -72,7 +72,8 @@
                             </td>
                             <td class="px-4 py-3 font-medium">{{ $brng->nama_produk }}</td>
                             <td class="px-4 py-3 font-medium">{{ $brng->jenis_produk->nama_jenis_produk }}</td>
-                            <td class="px-4 py-3 font-medium">{{ $brng->harga_produk }}</td>
+                            <td class="px-4 py-3 font-medium">{{ $brng->harga_produk }} / {{ $brng->satuan_produk }}
+                            </td>
                             <td class="px-4 py-3 font-medium">{{ $brng->stock_produk }}</td>
                             <td class="py-3">
                                 <div class="flex px-3">

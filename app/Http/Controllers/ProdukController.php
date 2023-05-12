@@ -8,12 +8,30 @@ use Illuminate\Support\Facades\Session;
 
 class ProdukController extends Controller
 {
+    public function getAllProduk()
+    {
+        $produk = Produk::all();
+
+        return response()->json(['data' => $produk], 200);
+    }
+
+    public function getProdukById($id)
+    {
+        $produk = Produk::find($id);
+        if ($produk) {
+            return response()->json(['data' => $produk], 200);
+        } else {
+            return response()->json(['message' => 'produk not found'], 404);
+        }
+    }
+
     public function store(Request $request)
     {
         // dd($request->all());
         $validatedData = $request->validate([
             'nama_produk' => 'required',
             'harga_produk' => 'required',
+            'satuan_produk' => 'required',
             'stock_produk' => 'required',
             'foto_produk' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'id_jenis_produk' => 'required'
@@ -26,6 +44,7 @@ class ProdukController extends Controller
             $produk = Produk::create([
                 'nama_produk' => $validatedData['nama_produk'],
                 'harga_produk' => $validatedData['harga_produk'],
+                'satuan_produk' => $validatedData['satuan_produk'],
                 'stock_produk' => $validatedData['stock_produk'],
                 'foto_produk' => $imageName,
                 'id_jenis_produk' => $validatedData['id_jenis_produk']
@@ -46,6 +65,7 @@ class ProdukController extends Controller
         $validatedData = $request->validate([
             'nama_produk' => 'required',
             'harga_produk' => 'required|numeric',
+            'satuan_produk' => 'required',
             'stock_produk' => 'required|numeric',
             'foto_produk' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'id_jenis_produk' => 'required'
@@ -64,6 +84,7 @@ class ProdukController extends Controller
 
         $produk->nama_produk = $validatedData['nama_produk'];
         $produk->harga_produk = $validatedData['harga_produk'];
+        $produk->satuan_produk = $validatedData['satuan_produk'];
         $produk->stock_produk = $validatedData['stock_produk'];
         $produk->id_jenis_produk = $validatedData['id_jenis_produk'];
         $produk->save();
