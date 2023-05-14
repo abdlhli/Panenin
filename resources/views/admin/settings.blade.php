@@ -46,7 +46,7 @@
 
                         <hr class="w-auto h-px bg-gray-300 border-0 dark:bg-gray-800">
 
-                        <div class="divide-y divide-gray-800">
+                        <div class="divide-y divide-gray-300">
                             <!-- Baris Content -->
                             <div class="grid grid-cols-2 gap-4 items-center p-2 px-4">
                                 <!-- grid kiri -->
@@ -114,8 +114,9 @@
                                 <!-- grid kanan -->
                                 <div class="grid grid-cols-1 gap-4">
                                     <div>
-                                        <input type="number" id="no_telp" name="no_telp" required
+                                        <input type="text" id="no_telp" name="no_telp" required
                                             value="{{ auth()->user()->no_telp }}"
+                                            onkeypress="return event.charCode >= 48 && event.charCode <= 57"
                                             class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                     </div>
                                 </div>
@@ -156,8 +157,8 @@
                                                 <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF
                                                     (MAX. 800x400px)</p>
                                             </div>
-                                            <input id="foto_profile" type="file" class="hidden" name="foto_profile"
-                                                onchange="previewImage(event)" />
+                                            <input id="foto_profile" type="file" class="hidden"
+                                                name="foto_profile" onchange="previewImage(event)" />
                                         </label>
                                         @error('image')
                                             <p class="text-red-500 mt-2 text-xs">{{ $message }}</p>

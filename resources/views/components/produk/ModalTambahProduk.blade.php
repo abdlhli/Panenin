@@ -66,7 +66,7 @@
                             id="previewTMB">
                     </div>
                     <div class="mb-6 flex-grow col-span-2">
-                        <label for="foto_produk"
+                        <label for="foto_produk_tmb"
                             class="flex flex-col items-center justify-center w-full h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
                             <div class="flex flex-col items-center justify-center pt-5 pb-6">
                                 <svg aria-hidden="true" class="w-10 h-10 mb-3 text-gray-400" fill="none"
@@ -81,7 +81,7 @@
                                 <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF
                                     (Saran 16 : 9)</p>
                             </div>
-                            <input id="foto_produk" type="file" class="hidden" name="foto_produk"
+                            <input id="foto_produk_tmb" type="file" class="hidden" name="foto_produk"
                                 onchange="previewImageTMB(event)" required />
                         </label>
                         <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium"></span>

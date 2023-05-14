@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\PemesananController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +27,7 @@ Route::get('/banner', [BannerController::class, 'getAllBanner']);
 
 Route::post('/login', [AuthController::class, 'loginMobile']);
 Route::post('/adduser', [UserController::class, 'addUser']);
-
+Route::post('/pemesanan', [PemesananController::class, 'store']);
 Route::post('/users/update/{id}', [UserController::class, 'updateUser']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
