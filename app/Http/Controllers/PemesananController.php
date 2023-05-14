@@ -84,3 +84,6 @@ class PemesananController extends Controller
         }
     }
 }
+
+// CATATAN
+// Tidak Ada Validasi Stock, Apabila ada validasi stock, total_harga_pemesanan yang ngebug merubah data yang sudah ada menjadi data terbaru
