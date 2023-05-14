@@ -74,6 +74,7 @@ class AdminController extends Controller
         }
 
         $user->save();
+        
         // redirect ke halaman setelah berhasil update
         Session::flash('updateAdmin', 'Akun berhasil diupdate!');
         return redirect()->back();

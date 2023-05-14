@@ -9,6 +9,13 @@ use Illuminate\Support\Facades\Session;
 
 class BannerController extends Controller
 {
+    public function getAllBanner()
+    {
+        $banner = Banner::all();
+
+        return response()->json(['data' => $banner], 200);
+    }
+
     public function inputBanner(Request $request)
     {
         try {
