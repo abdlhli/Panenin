@@ -11,7 +11,10 @@ class JenisProduk extends Model
     use HasFactory;
     protected $table = 'jenis_produk';
     protected $primaryKey = 'id_jenis_produk';
-    protected $fillable = ['nama_jenis_produk'];
+    protected $fillable = [
+        'nama_jenis_produk',
+        'foto_jenis_produk'
+    ];
 
     protected $keyType = 'string';
 

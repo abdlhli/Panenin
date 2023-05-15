@@ -41,8 +41,10 @@
         <div class="relative">
             <div class="shrink-0">
                 <img class="rounded-r-2xl drop-shadow-2xl" src="/assets/images/background-card-login.png">
-                <div class="absolute top-0 left-0 z-10 select-none">
-                    {{-- <img class="" src="/assets/images/LogoPaneninPutih.png"> --}}
+                <div class="absolute top-0 left-0 z-10 select-none items-center flex justify-center">
+                    <div class="flex-col justify-center">
+                        <img class="" src="/assets/images/logoPaneninPutih.png">
+                    </div>
                 </div>
                 <div class="absolute top-0 left-0 z-10 select-none" onclick="location.href='{{ route('welcome') }}'">
                     <img class=" w-9 h-9 mx-6 mt-6" src="/assets/icons/backdoor.png">

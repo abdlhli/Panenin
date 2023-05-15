@@ -34,15 +34,15 @@
                 <thead class="text-xs text-white uppercase bg-gray-50">
                     <tr>
                         <th scope="col" class="px-4 py-3 bg-green-900">No</th>
-                        <th scope="col" class="px-4 py-3 bg-green-900">Name</th>
+                        <th scope="col" class="px-4 py-3 bg-green-900">Nama</th>
                         <th scope="col" class="px-4 py-3 bg-green-900">Email</th>
                         <th scope="col" class="px-4 py-3 bg-green-900">Alamat</th>
                         <th scope="col" class="px-4 py-3 bg-green-900 flex justify-between items-center">
-                            <span class="text-gray-100 dark:text-white">Actions</span>
+                            <span class="text-gray-100 dark:text-white">Aksi</span>
                             <span class="text-gray-100 dark:text-white text-right">
-                                Showing
+                                Menampilkan
                                 <span class="text-gray-100 dark:text-white">{{ $akuns->total() }}</span>
-                                Entries
+                                Data
                             </span>
                         </th>
                     </tr>
@@ -75,7 +75,7 @@
                                             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                                             <circle cx="12" cy="12" r="3"></circle>
                                         </svg>
-                                        <span class="mx-1 pr-2">Show</span>
+                                        <span class="mx-1 pr-2">Lihat</span>
                                     </button>
                                     @if (auth()->user()->id_hak_akses == 1)
                                         <button id="TombolModalDeleteAkunUser"
@@ -94,7 +94,7 @@
                                                 <line x1="14" y1="11" x2="14" y2="17">
                                                 </line>
                                             </svg>
-                                            <span class="mx-1 pr-2">Delete</span>
+                                            <span class="mx-1 pr-2">Hapus</span>
                                         </button>
                                     @endif
                                 </div>

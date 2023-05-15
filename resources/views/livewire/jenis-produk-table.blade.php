@@ -30,9 +30,10 @@
             <thead class="text-xs text-white uppercase bg-gray-50">
                 <tr>
                     <th scope="col" class="px-4 py-3 bg-green-900">No</th>
+                    <th scope="col" class="px-4 py-3 bg-green-900">Foto Jenis Produk</th>
                     <th scope="col" class="px-4 py-3 bg-green-900">Nama</th>
                     <th scope="col" class="px-4 py-3 bg-green-900 flex justify-between items-center">
-                        <span class="text-gray-100 dark:text-white">Actions</span>
+                        <span class="text-gray-100 dark:text-white">Aksi</span>
                         {{-- <span class="text-gray-100 dark:text-white text-right">
                             Showing
                             <span class="text-gray-100 dark:text-white">{{ $jenis_produk->total() }}</span>
@@ -45,6 +46,7 @@
                 @foreach ($jenis_produk as $jenisproduct)
                     <tr class="border-b hover:bg-gray-200">
                         <th class="px-4 py-3 font-medium">{{ $i++ }}</th>
+                        <th class="px-4 py-3 font-medium">{{ $jenisproduct->foto_jenis_produk }}</th>
                         <td class="items-center px-4 py-3 font-semibold">
                             <div>
                                 <div class="font-semibold">{{ $jenisproduct->nama_jenis_produk }}
