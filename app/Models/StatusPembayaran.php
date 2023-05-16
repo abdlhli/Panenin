@@ -10,8 +10,12 @@ class StatusPembayaran extends Model
     use HasFactory;
 
     public $timestamps = false;
+    public $incrementing = false;
     protected $table = 'status_pemesanan';
     protected $primaryKey = 'id_status_pemesanan';
+    protected $fillable = [
+        'nama_status_pemesanan'
+    ];
 
     public function pemesanan()
     {

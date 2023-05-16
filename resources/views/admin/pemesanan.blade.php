@@ -12,7 +12,6 @@
         integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
 </head>
 
 <body style="margin-top: 64px;">
@@ -33,29 +32,62 @@
                                 class="p-5 text-lg font-semibold text-left text-gray-900 bg-white dark:text-white dark:bg-gray-800">
                                 Informasi Pemesanan
                                 <p class="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">Tabel berisi
-                                    informasi nama, email, dan produk dari semua pemesanan yang diterima</p>
-                                <form class="flex items-center">
-                                    <label for="simple-search" class="sr-only">Search</label>
-                                    <div class="relative w-full">
-                                        <div
-                                            class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                                            <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400"
-                                                fill="currentColor" viewbox="0 0 20 20"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd"
-                                                    d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                                                    clip-rule="evenodd" />
-                                            </svg>
-                                        </div>
-                                        <input type="text" id="simple-search"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                            placeholder="Search" required="">
-                                    </div>
-                                </form>
+                                    informasi pemesanan masuk seperti nama, email, dan produk dari semua pemesanan yang
+                                    diterima</p>
                             </caption>
                         </table>
                         <div class="pl-5 pb-5">
+                            <div class="mb-4 border-b border-gray-200 dark:border-gray-700 ac">
+                                <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="myTab"
+                                    data-tabs-toggle="#myTabContent" role="tablist">
+                                    <li class="mr-2" role="presentation">
+                                        <button
+                                            class="inline-block p-4 border-b-2 rounded-t-lg peer-active:text-green-600"
+                                            id="semua-pemesanan-tab" data-tabs-target="#semua-pemesanan" type="button"
+                                            role="tab" aria-controls="semua-pemesanan" aria-selected="false">Semua
+                                            Pemesanan</button>
+                                    </li>
+                                    <li class="mr-2" role="presentation">
+                                        <button
+                                            class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
+                                            id="menunggu-verifikasi-tab" data-tabs-target="#menunggu-verifikasi"
+                                            type="button" role="tab" aria-controls="menunggu-verifikasi"
+                                            aria-selected="false">Menunggu Verifikasi</button>
+                                    </li>
+                                    <li class="mr-2" role="presentation">
+                                        <button
+                                            class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
+                                            id="barang-diproses-tab" data-tabs-target="#barang-diproses" type="button"
+                                            role="tab" aria-controls="barang-diproses"
+                                            aria-selected="false">Pemesanan Dalam Proses</button>
+                                    </li>
+                                    <li role="presentation">
+                                        <button
+                                            class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
+                                            id="selesai-tab" data-tabs-target="#selesai" type="button" role="tab"
+                                            aria-controls="selesai" aria-selected="false">Selesai</button>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="myTabContent">
+                                <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="semua-pemesanan"
+                                    role="tabpanel" aria-labelledby="semua-pemesanan-tab">
+                                    @livewire('semua-pemesanan-table')
 
+                                </div>
+                                <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="menunggu-verifikasi"
+                                    role="tabpanel" aria-labelledby="menunggu-verifikasi-tab">
+
+                                </div>
+                                <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="barang-diproses"
+                                    role="tabpanel" aria-labelledby="barang-diproses-tab">
+
+                                </div>
+                                <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="selesai"
+                                    role="tabpanel" aria-labelledby="selesai-tab">
+
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="flex flex-col items-center py-7">
