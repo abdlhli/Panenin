@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 12 Bulan Mei 2023 pada 10.22
--- Versi server: 10.4.25-MariaDB
--- Versi PHP: 8.1.10
+-- Generation Time: May 17, 2023 at 09:31 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 7.4.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `akun`
+-- Table structure for table `akun`
 --
 
 CREATE TABLE `akun` (
@@ -40,18 +40,18 @@ CREATE TABLE `akun` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `akun`
+-- Dumping data for table `akun`
 --
 
 INSERT INTO `akun` (`id_user`, `firstname`, `lastname`, `email`, `password`, `alamat`, `no_telp`, `id_hak_akses`, `foto_profile`) VALUES
 ('ADM00001', 'Abdullah', 'Ali', 'abdullahali.and1@gmail.com', '$2y$10$x8Qv5EUgAW4/H.cgQ91a/OOk466TBtXlvL9ycmae8zWlbuGFKqae.', 'Jl. Jawa No.48 Jember', '081233326540', 1, '1682790499_WhatsApp Image 2021-08-23 at 19.35.35.jpeg'),
 ('ADM00002', 'Firmansyah', 'Fikriawan', 'firman@gmail.com', '$2y$10$i3r3bM3liBUWGCwDhQwVXukaQMLyjg/0e6PaWPik/d.d3gdBlZDQK', 'Bondowoso', '081234567890', 2, '1682790646_a.gif'),
-('PLG00001', 'Alvin', 'Jentara', 'alvin@gmail.com', '$2y$10$x59JPjsJ/mLx5ZFO2oEDvu80YjD1lgBNgnKoLKs9RshJPp.5oDtAa', 'Puger', '081234567890', 3, 'defaultprofile.png');
+('PLG00001', 'Alvin', 'Jentar', 'alvin@gmail.com', '$2y$10$fh3ujvAv7YWNpf70tjC1/O8WmfV2fub0qH0D5fzCobnHiCopOv8RS', 'Jember', '0812345678901', 3, '1684042269_eye.png');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `banner`
+-- Table structure for table `banner`
 --
 
 CREATE TABLE `banner` (
@@ -64,18 +64,17 @@ CREATE TABLE `banner` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `banner`
+-- Dumping data for table `banner`
 --
 
 INSERT INTO `banner` (`id_banner`, `nama_banner`, `foto_banner`, `tgl_banner`, `status`, `id_user`) VALUES
-('BNR00002', 'Coba Lagi', '1682913715_GhostWind_landscape_Arizona_mesa_canyon_rays_of_shimmering_ligh_eaa78443-594e-47f5-919b-66e0d1c9bad1.png', '2023-05-01', 'Aktif', 'ADM00001'),
 ('BNR00003', 'Coba Lagi Lagi', '1683363733_commanderInfinity_In_the_Land_of_Dragons_sits_a_towering_fortre_f7281d19-a9c2-4cc3-8b83-16e604005c87.png', '2023-05-06', 'Aktif', 'ADM00002'),
-('BNR00004', 'Coba Lagi Lagi Lagi', '1683364442_grendeldog_alien_landscape_veduta_899c2ea8-5f67-4df4-bd9a-b91092c556a7.png', '2023-05-06', 'Aktif', 'ADM00002');
+('BNR00004', 'Coba Lagi', '1684052263_7715D141-C1FD-4305-A8A6-8A0BA73C516D.jpg', '2023-05-14', 'Aktif', 'ADM00001');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `detail_pemesanan`
+-- Table structure for table `detail_pemesanan`
 --
 
 CREATE TABLE `detail_pemesanan` (
@@ -85,10 +84,19 @@ CREATE TABLE `detail_pemesanan` (
   `total_harga_produk` varchar(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `detail_pemesanan`
+--
+
+INSERT INTO `detail_pemesanan` (`id_pemesanan`, `id_produk`, `jumlah_produk`, `total_harga_produk`) VALUES
+('PSN20230514121807hvBzrCb2', 'PRD00001', '5', '50000'),
+('PSN20230514121807hvBzrCb2', 'PRD00002', '1', '15000'),
+('PSN20230514121807hvBzrCb2', 'PRD00003', '4', '32000');
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `hak_akses`
+-- Table structure for table `hak_akses`
 --
 
 CREATE TABLE `hak_akses` (
@@ -97,7 +105,7 @@ CREATE TABLE `hak_akses` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `hak_akses`
+-- Dumping data for table `hak_akses`
 --
 
 INSERT INTO `hak_akses` (`id_hak_akses`, `hak_akses`) VALUES
@@ -108,7 +116,7 @@ INSERT INTO `hak_akses` (`id_hak_akses`, `hak_akses`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `jenis_produk`
+-- Table structure for table `jenis_produk`
 --
 
 CREATE TABLE `jenis_produk` (
@@ -117,7 +125,7 @@ CREATE TABLE `jenis_produk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `jenis_produk`
+-- Dumping data for table `jenis_produk`
 --
 
 INSERT INTO `jenis_produk` (`id_jenis_produk`, `nama_jenis_produk`) VALUES
@@ -131,7 +139,7 @@ INSERT INTO `jenis_produk` (`id_jenis_produk`, `nama_jenis_produk`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -141,7 +149,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -154,7 +162,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pemesanan`
+-- Table structure for table `pemesanan`
 --
 
 CREATE TABLE `pemesanan` (
@@ -165,10 +173,17 @@ CREATE TABLE `pemesanan` (
   `id_status_pemesanan` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `pemesanan`
+--
+
+INSERT INTO `pemesanan` (`id_pemesanan`, `tgl_pemesanan`, `total_harga_pemesanan`, `id_user`, `id_status_pemesanan`) VALUES
+('PSN20230514121807hvBzrCb2', '2023-05-13', '97000', 'PLG00001', 5);
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `produk`
+-- Table structure for table `produk`
 --
 
 CREATE TABLE `produk` (
@@ -182,16 +197,18 @@ CREATE TABLE `produk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `produk`
+-- Dumping data for table `produk`
 --
 
 INSERT INTO `produk` (`id_produk`, `nama_produk`, `harga_produk`, `satuan_produk`, `stock_produk`, `foto_produk`, `id_jenis_produk`) VALUES
-('PRD00001', 'Apel', '10000', 'Kg', '100', '1683877036.apel.jpg', 'IDJP001');
+('PRD00001', 'Apel', '10000', 'Kg', '69', '1683877036.apel.jpg', 'IDJP001'),
+('PRD00002', 'Sayur Bayam', '15000', 'Kg', '19', '1684056096.bayam.jpg', 'IDJP003'),
+('PRD00003', 'Kacang Panjang', '8000', 'Kg', '24', '1684056185.kacangpanjang.jpg', 'IDJP003');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `status_pemesanan`
+-- Table structure for table `status_pemesanan`
 --
 
 CREATE TABLE `status_pemesanan` (
@@ -200,7 +217,7 @@ CREATE TABLE `status_pemesanan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `status_pemesanan`
+-- Dumping data for table `status_pemesanan`
 --
 
 INSERT INTO `status_pemesanan` (`id_status_pemesanan`, `nama_status_pemesanan`) VALUES
@@ -211,53 +228,54 @@ INSERT INTO `status_pemesanan` (`id_status_pemesanan`, `nama_status_pemesanan`) 
 (5, 'Pesanan Selesai'),
 (6, 'Barang Habis'),
 (7, 'Pembayaran Ditolak'),
-(8, 'Pesanan Dibatalkan');
+(8, 'Pesanan Dibatalkan'),
+(9, 'Menunggu Verifikasi Penjual');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `akun`
+-- Indexes for table `akun`
 --
 ALTER TABLE `akun`
   ADD PRIMARY KEY (`id_user`),
   ADD KEY `id_hak_akses` (`id_hak_akses`);
 
 --
--- Indeks untuk tabel `banner`
+-- Indexes for table `banner`
 --
 ALTER TABLE `banner`
   ADD PRIMARY KEY (`id_banner`),
   ADD KEY `id_user` (`id_user`);
 
 --
--- Indeks untuk tabel `detail_pemesanan`
+-- Indexes for table `detail_pemesanan`
 --
 ALTER TABLE `detail_pemesanan`
-  ADD KEY `id_pembelian` (`id_pemesanan`),
-  ADD KEY `id_produk` (`id_produk`);
+  ADD KEY `id_produk` (`id_produk`),
+  ADD KEY `id_pemesanan` (`id_pemesanan`);
 
 --
--- Indeks untuk tabel `hak_akses`
+-- Indexes for table `hak_akses`
 --
 ALTER TABLE `hak_akses`
   ADD PRIMARY KEY (`id_hak_akses`);
 
 --
--- Indeks untuk tabel `jenis_produk`
+-- Indexes for table `jenis_produk`
 --
 ALTER TABLE `jenis_produk`
   ADD PRIMARY KEY (`id_jenis_produk`);
 
 --
--- Indeks untuk tabel `migrations`
+-- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `pemesanan`
+-- Indexes for table `pemesanan`
 --
 ALTER TABLE `pemesanan`
   ADD PRIMARY KEY (`id_pemesanan`),
@@ -265,66 +283,66 @@ ALTER TABLE `pemesanan`
   ADD KEY `id_status_pemesanan` (`id_status_pemesanan`);
 
 --
--- Indeks untuk tabel `produk`
+-- Indexes for table `produk`
 --
 ALTER TABLE `produk`
   ADD PRIMARY KEY (`id_produk`),
   ADD KEY `id_jenis_produk` (`id_jenis_produk`);
 
 --
--- Indeks untuk tabel `status_pemesanan`
+-- Indexes for table `status_pemesanan`
 --
 ALTER TABLE `status_pemesanan`
   ADD PRIMARY KEY (`id_status_pemesanan`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `hak_akses`
+-- AUTO_INCREMENT for table `hak_akses`
 --
 ALTER TABLE `hak_akses`
   MODIFY `id_hak_akses` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `migrations`
+-- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `akun`
+-- Constraints for table `akun`
 --
 ALTER TABLE `akun`
   ADD CONSTRAINT `akun_ibfk_1` FOREIGN KEY (`id_hak_akses`) REFERENCES `hak_akses` (`id_hak_akses`);
 
 --
--- Ketidakleluasaan untuk tabel `banner`
+-- Constraints for table `banner`
 --
 ALTER TABLE `banner`
   ADD CONSTRAINT `banner_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `akun` (`id_user`);
 
 --
--- Ketidakleluasaan untuk tabel `detail_pemesanan`
+-- Constraints for table `detail_pemesanan`
 --
 ALTER TABLE `detail_pemesanan`
-  ADD CONSTRAINT `detail_pemesanan_ibfk_2` FOREIGN KEY (`id_produk`) REFERENCES `produk` (`id_produk`),
-  ADD CONSTRAINT `detail_pemesanan_ibfk_3` FOREIGN KEY (`id_pemesanan`) REFERENCES `pemesanan` (`id_pemesanan`);
+  ADD CONSTRAINT `detail_pemesanan_ibfk_2` FOREIGN KEY (`id_produk`) REFERENCES `produk` (`id_produk`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `detail_pemesanan_ibfk_3` FOREIGN KEY (`id_pemesanan`) REFERENCES `pemesanan` (`id_pemesanan`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `pemesanan`
+-- Constraints for table `pemesanan`
 --
 ALTER TABLE `pemesanan`
   ADD CONSTRAINT `pemesanan_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `akun` (`id_user`),
   ADD CONSTRAINT `pemesanan_ibfk_2` FOREIGN KEY (`id_status_pemesanan`) REFERENCES `status_pemesanan` (`id_status_pemesanan`);
 
 --
--- Ketidakleluasaan untuk tabel `produk`
+-- Constraints for table `produk`
 --
 ALTER TABLE `produk`
   ADD CONSTRAINT `produk_ibfk_1` FOREIGN KEY (`id_jenis_produk`) REFERENCES `jenis_produk` (`id_jenis_produk`);
