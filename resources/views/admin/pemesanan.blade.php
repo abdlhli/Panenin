@@ -37,7 +37,7 @@
                             </caption>
                         </table>
                         <div class="pl-5 pb-5">
-                            <div class="mb-4 border-b border-gray-200 dark:border-gray-700 ac">
+                            <div class=" border-b border-gray-200 dark:border-gray-700 ac">
                                 <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="myTab"
                                     data-tabs-toggle="#myTabContent" role="tablist">
                                     <li class="mr-2" role="presentation">

@@ -1,10 +1,11 @@
 @php
     $i = 1;
+    $jmdo = 1;
 @endphp
 <div class="mx-auto max-w-screen-xl">
     <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
         <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
-            <div class="w-full md:w-1/2">
+            <div class="w-full">
                 <form class="flex items-center">
                     <label for="simple-search" class="sr-only">Search</label>
                     <div class="relative w-full">
@@ -32,12 +33,11 @@
                     <tr>
                         <th scope="col" class="px-4 py-3 bg-green-900">No</th>
                         <th scope="col" class="px-4 py-3 bg-green-900">ID Pemesanan</th>
-                        <th scope="col" class="px-4 py-3 bg-green-900">Pemesan</th>
-                        <th scope="col" class="px-4 py-3 bg-green-900">Produk Pesanan</th>
-                        <th scope="col" class="px-4 py-3 bg-green-900">Tanggal Pemesanan</th>
-                        <th scope="col" class="px-4 py-3 bg-green-900">Total Harga Pemesanan</th>
-                        <th scope="col" class="px-4 py-3 bg-green-900">Status Pemesanan</th>
-                        <th scope="col" class="px-4 py-3 bg-green-900">Aksi</th>
+                        <th scope="col" class="px-4 py-3 bg-green-900">Nama </th>
+                        <th scope="col" class="px-4 py-3 bg-green-900">Tanggal </th>
+                        <th scope="col" class="px-4 py-3 bg-green-900">Total Harga </th>
+                        <th scope="col" class="px-4 py-3 bg-green-900">Status </th>
+                        <th scope="col" class="px-4 py-3 bg-green-900 text-center">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -47,12 +47,110 @@
                             <td class="px-4 py-3 font-medium">{{ $order->id_pemesanan }}</td>
                             <td class="px-4 py-3 font-medium">{{ $order->user->firstname }} {{ $order->user->lastname }}
                             </td>
-                            <td class="px-4 py-3 font-medium">Produk Yang Dipesan</td>
                             <td class="px-4 py-3 font-medium">{{ $order->tgl_pemesanan }}</td>
                             <td class="px-4 py-3 font-medium">{{ $order->total_harga_pemesanan }}</td>
-                            <td class="px-4 py-3 font-medium">{{ $order->id_status_pemesanan }}
+                            <td
+                                class="px-4 py-1 my-2 font-medium inline-flex items-center justify-center rounded-md w-60
+                            @if ($order->statusPemesanan->nama_status_pemesanan == 'Pembayaran Diverifikasi') bg-green-500 text-white
+                            @elseif($order->statusPemesanan->nama_status_pemesanan == 'Barang Sedang Diproses')
+                                bg-yellow-500 text-white
+                            @elseif($order->statusPemesanan->nama_status_pemesanan == 'Barang Dikirim')
+                                bg-blue-500 text-white
+                            @elseif($order->statusPemesanan->nama_status_pemesanan == 'Pesanan Telah Diterima')
+                                bg-indigo-500 text-white
+                            @elseif($order->statusPemesanan->nama_status_pemesanan == 'Pesanan Selesai')
+                                bg-purple-500 text-white
+                            @elseif($order->statusPemesanan->nama_status_pemesanan == 'Barang Habis')
+                                bg-red-500 text-white
+                            @elseif($order->statusPemesanan->nama_status_pemesanan == 'Pembayaran Ditolak')
+                                bg-pink-500 text-white
+                            @elseif($order->statusPemesanan->nama_status_pemesanan == 'Pesanan Dibatalkan')
+                                bg-gray-500 text-white
+                            @elseif($order->statusPemesanan->nama_status_pemesanan == 'Menunggu Verifikasi Penjual')
+                                bg-yellow-300 text-white
+                            @else
+                                bg-gray-300 text-black @endif">
+                                <div class="px-3 py-1">
+                                    <span class="inline-block align-middle">
+                                        {{ $order->statusPemesanan->nama_status_pemesanan }}
+                                    </span>
+                                </div>
                             </td>
-                            <td class="px-4 py-3 font-medium">Ini Aksi</td>
+
+                            <td class="py-3">
+                                <div class="flex px-4">
+                                    {{-- @if ($user->id_user != auth()->user()->id_user) --}}
+                                    <button id="TombolModalUpdateStatus" {{-- data-modal-toggle="ModalDetailAkunAdmin{{ $user->id_user }}" --}}
+                                        class="flex items-center hover:bg-gray-100 text-gray-500 hover:text-cyan-500 font-semibold py-1 px-4 rounded shadow">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="12" r="1"></circle>
+                                            <circle cx="19" cy="12" r="1"></circle>
+                                            <circle cx="5" cy="12" r="1"></circle>
+                                        </svg>
+                                    </button>
+                                    {{-- @if (auth()->user()->id_hak_akses == 1) --}}
+                                    <button id="TombolDetailPemesanan" {{-- data-modal-toggle="ModalEditAkunAdmin{{ $user->id_user }}" --}}
+                                        data-target="{{ $order->id_pemesanan }}"
+                                        class="flex items-center hover:bg-gray-100 text-gray-500 hover:text-cyan-500 font-semibold py-1 px-4 rounded shadow">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M6 9l6 6 6-6" />
+                                        </svg>
+                                    </button>
+                                    {{-- @endif --}}
+                                    {{-- @endif --}}
+                                </div>
+                            </td>
+                        <tr class="border-b hover:bg-gray-200">
+                            <!-- Kolom lainnya -->
+                            <td colspan="7" id="DetailPemesanan{{ $order->id_pemesanan }}" class="hidden">
+                                <!-- Tampilkan detail pemesanan di sini -->
+                                <table id="my-table" class="w-full text-sm text-left">
+                                    <thead class="text-xs text-white uppercase bg-gray-50">
+                                        <tr>
+                                            <th scope="col" class="px-4 py-3 bg-green-600">No</th>
+                                            <th scope="col" class="px-4 py-3 bg-green-600">Foto Produk</th>
+                                            <th scope="col" class="px-4 py-3 bg-green-600">Nama Produk </th>
+                                            <th scope="col" class="px-4 py-3 bg-green-600">Harga Produk </th>
+                                            <th scope="col" class="px-4 py-3 bg-green-600">Jumlah Produk </th>
+                                            <th scope="col" class="px-4 py-3 bg-green-600">Total Harga Produk </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <div class="flex flex-col items-center py-2 font-semibold">-=-=-=-=-= Detail
+                                            Pemesanan =-=-=-=-=-
+                                        </div>
+                                        @foreach ($detailorders as $detailorder)
+                                            @if ($detailorder->id_pemesanan == $order->id_pemesanan)
+                                                <tr class="border-b hover:bg-gray-200">
+                                                    <th class="px-4 py-3 font-medium">{{ $jmdo++ }}</th>
+                                                    <td class="px-4 py-3 font-medium">
+                                                        {{ $detailorder->produk->foto_produk }}</td>
+                                                    <td class="px-4 py-3 font-medium">
+                                                        {{ $detailorder->produk->nama_produk }}
+                                                    </td>
+                                                    <td class="px-4 py-3 font-medium">
+                                                        {{ $detailorder->produk->harga_produk }}
+                                                    </td>
+                                                    <td class="px-4 py-3 font-medium">
+                                                        {{ $detailorder->jumlah_produk }}
+                                                    </td>
+                                                    <td class="px-4 py-3 font-medium">
+                                                        {{ $detailorder->total_harga_produk }}
+                                                    </td>
+                                                </tr>
+                                            @endif
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                                <div class="flex flex-col items-center py-2 bg-green-600"></div>
+                                <div class="flex flex-col items-center py-1 bg-white"></div>
+                                <div class="flex flex-col items-center py-2 bg-green-900"></div>
+                            </td>
+                        </tr>
                         </tr>
                     @endforeach
                 </tbody>
@@ -96,5 +194,25 @@
                 }
             }
         }
+    });
+
+    // Ambil semua tombol "TombolDetailPemesanan"
+    const tombolDetailPemesanan = document.querySelectorAll('#TombolDetailPemesanan');
+
+    // Loop melalui setiap tombol
+    tombolDetailPemesanan.forEach((tombol) => {
+        // Tambahkan event listener untuk klik
+        tombol.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            // Ambil target ID dari atribut "data-target"
+            const targetID = tombol.getAttribute('data-target');
+
+            // Ambil elemen detail pemesanan dengan ID yang sesuai
+            const detailPemesanan = document.getElementById(`DetailPemesanan${targetID}`);
+
+            // Toggle kelas "hidden" pada elemen detail pemesanan untuk mengubah tampilan
+            detailPemesanan.classList.toggle('hidden');
+        });
     });
 </script>

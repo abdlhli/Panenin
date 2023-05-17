@@ -111,7 +111,7 @@
                     <!-- content kotak 2 -->
                     <div class="rounded-lg shadow-sm bg-[#81B974] border pt-8 pb-8">
                         <span class="pl-5 text-lg font-normal text-white">
-                            Total Penjualan
+                            Penjualan Bulan Ini
                         </span>
                         <span class="block pl-5 text-2xl font-semibold text-white">
                             00000
@@ -127,7 +127,7 @@
                     <!-- content kotak 1 -->
                     <div class="rounded-lg shadow-sm bg-[#93A68F] border pt-8 pb-8">
                         <span class="pl-5 text-lg font-normal text-white">
-                            Jumlah Pelanggan Baru
+                            Total Penjualan
                         </span>
                         <span class="block pl-5 text-2xl font-semibold text-white">
                             00000
