@@ -10,7 +10,7 @@ class ProdukController extends Controller
 {
     public function getAllProduk()
     {
-        $produk = Produk::all();
+        $produk = Produk::with('jenis_produk')->get();
 
         return response()->json(['data' => $produk], 200);
     }

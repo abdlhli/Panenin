@@ -111,15 +111,15 @@ class PemesananController extends Controller
         return response()->json(['data' => $Pemesanan], 200);
     }
 
-    public function getPemesananById($id)
+    public function getPemesananByIdUser($id)
     {
-        $Pemesanan = DetailPemesanan::where('id_pemesanan', $id)->get();
+        $pemesanan = Pemesanan::with('detailPemesanan', 'statusPemesanan')->where('id_user', $id)->get();
 
-        if ($Pemesanan) {
-            return response()->json(['data' => $Pemesanan], 200);
-        } else {
+        if ($pemesanan->isEmpty()) {
             return response()->json(['message' => 'Pemesanan not found'], 404);
         }
+
+        return response()->json(['data' => $pemesanan], 200);
     }
 }
 
