@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Pemesanan;
 use App\Models\DetailPemesanan;
+use Illuminate\Support\Facades\Session;
 
 class PemesananController extends Controller
 {
@@ -81,6 +82,43 @@ class PemesananController extends Controller
                 'message' => 'Pemesanan gagal ditambahkan',
                 'error' => $e->getMessage(),
             ], 500);
+        }
+    }
+
+    public function updateStatus(Request $request, $id)
+    {
+
+        $validatedData = $request->validate([
+            'id_status_pemesanan' => 'required|int'
+        ]);
+
+        $pesan = Pemesanan::find($id);
+
+        $pesan->update([
+            'id_status_pemesanan' => $validatedData['id_status_pemesanan'],
+        ]);
+
+        $pesan->save();
+
+        Session::flash('updateStatus', 'Status Pemesanan Berhasil Diupdate!');
+        return redirect()->back();
+    }
+
+    public function getAllPemesanan()
+    {
+        $Pemesanan = Pemesanan::all();
+
+        return response()->json(['data' => $Pemesanan], 200);
+    }
+
+    public function getPemesananById($id)
+    {
+        $Pemesanan = DetailPemesanan::where('id_pemesanan', $id)->get();
+
+        if ($Pemesanan) {
+            return response()->json(['data' => $Pemesanan], 200);
+        } else {
+            return response()->json(['message' => 'Pemesanan not found'], 404);
         }
     }
 }

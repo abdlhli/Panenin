@@ -7,7 +7,9 @@ use App\Http\Controllers\BannerController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\JenisProdukController;
+use App\Http\Controllers\PemesananController;
 use App\Http\Controllers\ProdukController;
+use App\Models\Pemesanan;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +44,7 @@ Route::post('/update-account', [SettingsController::class, 'update'])->name('upd
 
 Route::put('/akun/update/{id}', [AdminController::class, 'update'])->name('akun.update');
 Route::put('/produk/{produk}', [ProdukController::class, 'update'])->name('produk.update');
+Route::put('/pemesanan/{id}', [PemesananController::class, 'updateStatus'])->name('pemesanan.update');
 Route::put('/banners/{id}', [BannerController::class, 'updateBanner'])->name('banners.update');
 
 Route::delete('/user/hapus/{id_user}', [UserController::class, 'hapus'])->name('user.hapus');

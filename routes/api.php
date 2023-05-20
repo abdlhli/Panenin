@@ -24,6 +24,8 @@ Route::get('/users/{id}', [UserController::class, 'getUserById']);
 Route::get('/produk', [ProdukController::class, 'getAllProduk']);
 Route::get('/produk/{id}', [ProdukController::class, 'getProdukById']);
 Route::get('/banner', [BannerController::class, 'getAllBanner']);
+Route::get('/pemesanan', [PemesananController::class, 'getAllPemesanan']);
+Route::get('/pemesanan/{id}', [PemesananController::class, 'getPemesananById']);
 
 Route::post('/login', [AuthController::class, 'loginMobile']);
 Route::post('/adduser', [UserController::class, 'addUser']);

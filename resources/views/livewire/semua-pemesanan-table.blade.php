@@ -45,7 +45,8 @@
                         <tr class="border-b hover:bg-gray-200">
                             <th class="px-4 py-3 font-medium">{{ $i++ }}</th>
                             <td class="px-4 py-3 font-medium">{{ $order->id_pemesanan }}</td>
-                            <td class="px-4 py-3 font-medium">{{ $order->user->firstname }} {{ $order->user->lastname }}
+                            <td class="px-4 py-3 font-medium"> {{ $order->user->firstname }}
+                                {{ $order->user->lastname }}
                             </td>
                             <td class="px-4 py-3 font-medium">{{ $order->tgl_pemesanan }}</td>
                             <td class="px-4 py-3 font-medium">{{ $order->total_harga_pemesanan }}</td>
@@ -76,23 +77,20 @@
                                     </span>
                                 </div>
                             </td>
-
                             <td class="py-3">
                                 <div class="flex px-4">
-                                    {{-- @if ($user->id_user != auth()->user()->id_user) --}}
-                                    <button id="TombolModalUpdateStatus" {{-- data-modal-toggle="ModalDetailAkunAdmin{{ $user->id_user }}" --}}
+                                    <button id="TombolModalUpdateStatus"
+                                        data-modal-toggle="ModalUpdateStatus{{ $order->id_pemesanan }}"
                                         class="flex items-center hover:bg-gray-100 text-gray-500 hover:text-cyan-500 font-semibold py-1 px-4 rounded shadow">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                             viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1"
                                             stroke-linecap="round" stroke-linejoin="round">
-                                            <circle cx="12" cy="12" r="1"></circle>
-                                            <circle cx="19" cy="12" r="1"></circle>
-                                            <circle cx="5" cy="12" r="1"></circle>
+                                            <path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34">
+                                            </path>
+                                            <polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon>
                                         </svg>
                                     </button>
-                                    {{-- @if (auth()->user()->id_hak_akses == 1) --}}
-                                    <button id="TombolDetailPemesanan" {{-- data-modal-toggle="ModalEditAkunAdmin{{ $user->id_user }}" --}}
-                                        data-target="{{ $order->id_pemesanan }}"
+                                    <button id="TombolDetailPemesanan" data-target="{{ $order->id_pemesanan }}"
                                         class="flex items-center hover:bg-gray-100 text-gray-500 hover:text-cyan-500 font-semibold py-1 px-4 rounded shadow">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                             viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1"
@@ -100,8 +98,6 @@
                                             <path d="M6 9l6 6 6-6" />
                                         </svg>
                                     </button>
-                                    {{-- @endif --}}
-                                    {{-- @endif --}}
                                 </div>
                             </td>
                         <tr class="border-b hover:bg-gray-200">
@@ -111,9 +107,7 @@
                                 <table id="my-table" class="w-full text-sm text-left">
                                     <thead class="text-xs text-white uppercase bg-gray-50">
                                         <tr>
-                                            <th scope="col" class="px-4 py-3 bg-green-600">No</th>
-                                            <th scope="col" class="px-4 py-3 bg-green-600">Foto Produk</th>
-                                            <th scope="col" class="px-4 py-3 bg-green-600">Nama Produk </th>
+                                            <th scope="col" class="px-4 py-3 bg-green-600">Produk </th>
                                             <th scope="col" class="px-4 py-3 bg-green-600">Harga Produk </th>
                                             <th scope="col" class="px-4 py-3 bg-green-600">Jumlah Produk </th>
                                             <th scope="col" class="px-4 py-3 bg-green-600">Total Harga Produk </th>
@@ -126,11 +120,17 @@
                                         @foreach ($detailorders as $detailorder)
                                             @if ($detailorder->id_pemesanan == $order->id_pemesanan)
                                                 <tr class="border-b hover:bg-gray-200">
-                                                    <th class="px-4 py-3 font-medium">{{ $jmdo++ }}</th>
                                                     <td class="px-4 py-3 font-medium">
-                                                        {{ $detailorder->produk->foto_produk }}</td>
-                                                    <td class="px-4 py-3 font-medium">
-                                                        {{ $detailorder->produk->nama_produk }}
+                                                        <div
+                                                            class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                                                            <img class="rounded-t-lg"
+                                                                src="{{ asset('assets/images/photoproduk/' . $detailorder->produk->foto_produk) }}" />
+                                                            <div class="p-5">
+                                                                <h6
+                                                                    class="mb-2 text-center text-lg font-bold tracking-tight text-gray-900 dark:text-white">
+                                                                    {{ $detailorder->produk->nama_produk }}</h6>
+                                                            </div>
+                                                        </div>
                                                     </td>
                                                     <td class="px-4 py-3 font-medium">
                                                         {{ $detailorder->produk->harga_produk }}
@@ -151,7 +151,7 @@
                                 <div class="flex flex-col items-center py-2 bg-green-900"></div>
                             </td>
                         </tr>
-                        </tr>
+                        @include('components.pemesanan.ModalUpdatePemesanan')
                     @endforeach
                 </tbody>
             </table>

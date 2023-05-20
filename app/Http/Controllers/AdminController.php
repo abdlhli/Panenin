@@ -43,12 +43,7 @@ class AdminController extends Controller
 
         // validasi data
         $validatedData = $request->validate([
-            // 'firstname' => 'required|string|max:255',
-            // 'lastname' => 'required|string|max:255',
-            // 'email' => 'required|string|email|max:255',
             'password' => 'nullable|string|min:8',
-            // 'alamat' => 'required|string|max:255',
-            // 'no_telp' => 'required|string|max:255',
             'id_hak_akses' => 'required|int'
         ]);
 
@@ -57,11 +52,6 @@ class AdminController extends Controller
 
         // update data user
         $user->update([
-            // 'firstname' => $validatedData['firstname'],
-            // 'lastname' => $validatedData['lastname'],
-            // 'email' => $validatedData['email'],
-            // 'alamat' => $validatedData['alamat'],
-            // 'no_telp' => $validatedData['no_telp'],
             'id_hak_akses' => $validatedData['id_hak_akses'],
         ]);
 
@@ -74,7 +64,7 @@ class AdminController extends Controller
         }
 
         $user->save();
-        
+
         // redirect ke halaman setelah berhasil update
         Session::flash('updateAdmin', 'Akun berhasil diupdate!');
         return redirect()->back();
