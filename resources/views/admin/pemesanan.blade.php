@@ -77,14 +77,17 @@
                                 </div>
                                 <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="menunggu-verifikasi"
                                     role="tabpanel" aria-labelledby="menunggu-verifikasi-tab">
+                                    @livewire('verifikasi-pemesanan-table')
 
                                 </div>
                                 <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="barang-diproses"
                                     role="tabpanel" aria-labelledby="barang-diproses-tab">
+                                    @livewire('proses-pemesanan-table')
 
                                 </div>
                                 <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="selesai"
                                     role="tabpanel" aria-labelledby="selesai-tab">
+                                    @livewire('selesai-pemesanan-table')
 
                                 </div>
                             </div>

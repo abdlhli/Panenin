@@ -46,7 +46,10 @@
                 @foreach ($jenis_produk as $jenisproduct)
                     <tr class="border-b hover:bg-gray-200">
                         <th class="px-4 py-3 font-medium">{{ $i++ }}</th>
-                        <th class="px-4 py-3 font-medium">{{ $jenisproduct->foto_jenis_produk }}</th>
+                        <th class="px-4 py-3 font-medium"><img class="w-32 h-32"
+                                src="{{ asset('assets/images/photojenisproduk/' . $jenisproduct->foto_jenis_produk) }}"
+                                alt="foto">
+                        </th>
                         <td class="items-center px-4 py-3 font-semibold">
                             <div>
                                 <div class="font-semibold">{{ $jenisproduct->nama_jenis_produk }}

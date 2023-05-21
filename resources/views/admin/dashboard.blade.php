@@ -55,23 +55,30 @@
                 <div class="rounded-lg shadow-sm bg-[#B5D9AC] border pt-6 pl-6 pr-6">
                     <div class="group flex justify-end items-center">
                         <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24"
-                                fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="5" />
-                                <path
-                                    d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" />
-                            </svg>
+                            @if ($isDaytime)
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                    viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="5" />
+                                    <path
+                                        d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" />
+                                </svg>
+                            @else
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                    viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                                </svg>
+                            @endif
                         </span>
+
+
                         <span class="pl-5 text-2xl font-semibold text-white">
-                            -
-                        </span>
-                        <span class="text-lg font-normal text-white">
-                            &deg;C
+                            {{ $temperature }}&deg;C
                         </span>
                         <div class="flex flex-col items-end">
                             <span class="pl-5 text-2xl font-normal text-white">
-                                Jember
+                                {{ $city }}
                             </span>
                             <span class="pl-5 text-2xl font-light text-white">
                                 Indonesia
@@ -89,67 +96,65 @@
             <!-- Kotak Kedua berisi 4 kotak yang memberikan info" singkat -->
             <!-- grid kanan -->
             <div class="grid grid-cols-2 gap-4">
-
                 <!-- kotak 1 -->
-                <div class=" p-4">
+                <div class="p-4">
                     <!-- content kotak 1 -->
                     <div class="rounded-lg shadow-sm bg-[#6FBE8F] border pt-8 pb-8">
                         <span class="pl-5 text-lg font-normal text-white">
                             Penjualan Hari Ini
                         </span>
                         <span class="block pl-5 text-2xl font-semibold text-white">
-                            00000
+                            {{ $todaySales }}
                         </span>
                         <span class="pl-5 text-lg font-normal text-white">
-                            00.00% (30 Days)
+                            {{ number_format($percentageLast30Days, 2) }}% (30 Days)
                         </span>
                     </div>
                 </div>
 
                 <!-- kotak 2 -->
-                <div class=" p-4">
+                <div class="p-4">
                     <!-- content kotak 2 -->
                     <div class="rounded-lg shadow-sm bg-[#81B974] border pt-8 pb-8">
                         <span class="pl-5 text-lg font-normal text-white">
                             Penjualan Bulan Ini
                         </span>
                         <span class="block pl-5 text-2xl font-semibold text-white">
-                            00000
+                            {{ $monthlySales }}
                         </span>
                         <span class="pl-5 text-lg font-normal text-white">
-                            00.00% (30 Days)
+                            {{ number_format($percentageThisMonthLast30Days, 2) }}% (30 Days)
                         </span>
                     </div>
                 </div>
 
                 <!-- kotak 3 -->
-                <div class=" p-4">
+                <div class="p-4">
                     <!-- content kotak 1 -->
                     <div class="rounded-lg shadow-sm bg-[#93A68F] border pt-8 pb-8">
                         <span class="pl-5 text-lg font-normal text-white">
                             Total Penjualan
                         </span>
                         <span class="block pl-5 text-2xl font-semibold text-white">
-                            00000
+                            {{ $totalSales }}
                         </span>
                         <span class="pl-5 text-lg font-normal text-white">
-                            00.00% (30 Days)
                         </span>
                     </div>
                 </div>
 
                 <!-- kotak 4 -->
-                <div class=" p-4">
+                <div class="p-4">
                     <!-- content kotak 2 -->
                     <div class="rounded-lg shadow-sm bg-[#CC6B02] border pt-8 pb-8">
                         <span class="pl-5 text-lg font-normal text-white">
                             Total Pelanggan
                         </span>
                         <span class="block pl-5 text-2xl font-semibold text-white">
-                            00000
+                            {{ $totalCustomers }}
                         </span>
                         <span class="pl-5 text-lg font-normal text-white">
-                            00.00% (30 Days)
+                            {{ number_format($percentageTotalCustomersLast30Days, 2) }}% (30 Days)
                         </span>
                     </div>
                 </div>
@@ -179,7 +184,7 @@
                             Hari Ini
                         </span>
                         <span class="block text-xl font-normal text-[#3C6831]">
-                            00000K
+                            {{ $pendapatantodaySales }}
                         </span>
                     </div>
                     <div>
@@ -187,7 +192,7 @@
                             Minggu Ini
                         </span>
                         <span class="block text-xl font-normal text-[#3C6831]">
-                            00000K
+                            {{ $pendapatanweeklySales }}
                         </span>
                     </div>
                     <div>
@@ -195,7 +200,7 @@
                             Bulan Ini
                         </span>
                         <span class="block text-xl font-normal text-[#3C6831]">
-                            00000K
+                            {{ $pendapatanmonthlySales }}
                         </span>
                     </div>
                     <div>
@@ -203,7 +208,7 @@
                             Tahun Ini
                         </span>
                         <span class="block text-xl font-normal text-[#3C6831]">
-                            00000K
+                            {{ $pendapatanyearlySales }}
                         </span>
                     </div>
                 </div>

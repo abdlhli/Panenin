@@ -14,8 +14,11 @@
 <body style="margin-top: 64px;">
 
     @include('components.navbar')
-
     @include('components.sidebar')
+
+    <div class="pl-4 sm:ml-64">
+        @livewire('laporan-table')
+    </div>
 
     @if ($errors->any())
         <script>

@@ -58,7 +58,7 @@
                                     <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF
                                         (Saran 16 : 9)</p>
                                 </div>
-                                <input id="foto_jenis_produk" type="file" class="hidden" name="foto_produk"
+                                <input id="foto_jenis_produk" type="file" class="hidden" name="foto_jenis_produk"
                                     onchange="previewImage(event)" required />
                             </label>
                             <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium"></span>

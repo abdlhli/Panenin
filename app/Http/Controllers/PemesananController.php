@@ -85,22 +85,18 @@ class PemesananController extends Controller
         }
     }
 
-    public function updateStatus(Request $request, $id)
+    public function updateStatus(Request $request, $idPemesanan)
     {
 
         $validatedData = $request->validate([
-            'id_status_pemesanan' => 'required|int'
+            'id_status_pemesanan' => 'required',
         ]);
 
-        $pesan = Pemesanan::find($id);
+        $statusPemesanan = Pemesanan::findOrFail($idPemesanan);
+        $statusPemesanan->id_status_pemesanan = $validatedData['id_status_pemesanan'];
+        $statusPemesanan->save();
 
-        $pesan->update([
-            'id_status_pemesanan' => $validatedData['id_status_pemesanan'],
-        ]);
-
-        $pesan->save();
-
-        Session::flash('updateStatus', 'Status Pemesanan Berhasil Diupdate!');
+        Session::flash('updatepemesanan', 'Status pemesanan berhasil diupdate!');
         return redirect()->back();
     }
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 17, 2023 at 09:31 AM
+-- Generation Time: May 21, 2023 at 02:30 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -91,7 +91,13 @@ CREATE TABLE `detail_pemesanan` (
 INSERT INTO `detail_pemesanan` (`id_pemesanan`, `id_produk`, `jumlah_produk`, `total_harga_produk`) VALUES
 ('PSN20230514121807hvBzrCb2', 'PRD00001', '5', '50000'),
 ('PSN20230514121807hvBzrCb2', 'PRD00002', '1', '15000'),
-('PSN20230514121807hvBzrCb2', 'PRD00003', '4', '32000');
+('PSN20230514121807hvBzrCb2', 'PRD00003', '4', '32000'),
+('PSN20230521071432ewr6FZa8', 'PRD00001', '1', '10000'),
+('PSN20230521071432ewr6FZa8', 'PRD00002', '7', '105000'),
+('PSN20230521071432ewr6FZa8', 'PRD00003', '2', '16000'),
+('PSN20230521073317Tqeyt6qq', 'PRD00001', '3', '30000'),
+('PSN20230521073317Tqeyt6qq', 'PRD00002', '2', '30000'),
+('PSN20230521090304NCKHWa4U', 'PRD00001', '3', '30000');
 
 -- --------------------------------------------------------
 
@@ -121,20 +127,21 @@ INSERT INTO `hak_akses` (`id_hak_akses`, `hak_akses`) VALUES
 
 CREATE TABLE `jenis_produk` (
   `id_jenis_produk` char(255) NOT NULL,
-  `nama_jenis_produk` varchar(20) NOT NULL
+  `nama_jenis_produk` varchar(20) NOT NULL,
+  `foto_jenis_produk` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `jenis_produk`
 --
 
-INSERT INTO `jenis_produk` (`id_jenis_produk`, `nama_jenis_produk`) VALUES
-('IDJP001', 'Buah Buahan'),
-('IDJP002', 'Produk Olahan'),
-('IDJP003', 'Sayuran'),
-('IDJP004', 'Tanaman Hias'),
-('IDJP005', 'Tanaman Pangan'),
-('IDJP006', 'Tanaman Perkebunan');
+INSERT INTO `jenis_produk` (`id_jenis_produk`, `nama_jenis_produk`, `foto_jenis_produk`) VALUES
+('IDJP001', 'Buah Buahan', 'fruit.png'),
+('IDJP002', 'Produk Olahan', 'healthy-eating.png'),
+('IDJP003', 'Sayuran', 'vegetables.png'),
+('IDJP004', 'Tanaman Hias', 'shelf.png'),
+('IDJP005', 'Tanaman Pangan', 'crop.png'),
+('IDJP006', 'Tanaman Perkebunan', 'trees.png');
 
 -- --------------------------------------------------------
 
@@ -178,7 +185,10 @@ CREATE TABLE `pemesanan` (
 --
 
 INSERT INTO `pemesanan` (`id_pemesanan`, `tgl_pemesanan`, `total_harga_pemesanan`, `id_user`, `id_status_pemesanan`) VALUES
-('PSN20230514121807hvBzrCb2', '2023-05-13', '97000', 'PLG00001', 5);
+('PSN20230514121807hvBzrCb2', '2023-05-13', '97000', 'PLG00001', 5),
+('PSN20230521071432ewr6FZa8', '2023-05-21', '131000', 'PLG00001', 2),
+('PSN20230521073317Tqeyt6qq', '2023-05-21', '60000', 'PLG00001', 6),
+('PSN20230521090304NCKHWa4U', '2023-05-21', '30000', 'PLG00001', 9);
 
 -- --------------------------------------------------------
 
@@ -201,9 +211,16 @@ CREATE TABLE `produk` (
 --
 
 INSERT INTO `produk` (`id_produk`, `nama_produk`, `harga_produk`, `satuan_produk`, `stock_produk`, `foto_produk`, `id_jenis_produk`) VALUES
-('PRD00001', 'Apel', '10000', 'Kg', '69', '1683877036.apel.jpg', 'IDJP001'),
-('PRD00002', 'Sayur Bayam', '15000', 'Kg', '19', '1684056096.bayam.jpg', 'IDJP003'),
-('PRD00003', 'Kacang Panjang', '8000', 'Kg', '24', '1684056185.kacangpanjang.jpg', 'IDJP003');
+('PRD00001', 'Apel', '10000', 'Kg', '62', '1683877036.apel.jpg', 'IDJP001'),
+('PRD00002', 'Sayur Bayam', '15000', 'Kg', '10', '1684056096.bayam.jpg', 'IDJP003'),
+('PRD00003', 'Kacang Panjang', '8000', 'Kg', '22', '1684056185.kacangpanjang.jpg', 'IDJP003'),
+('PRD00004', 'Mangga Harum Manis', '15000', 'Kg', '40', '1684670833.5370-550x550.jpg', 'IDJP001'),
+('PRD00005', 'Jeruk Nipis', '5000', 'Kg', '1000', '1684670897.jeruknipis.jpg', 'IDJP001'),
+('PRD00006', 'Pisang Cavendish', '8000', 'Kg', '100', '1684670935.pisang.jpg', 'IDJP001'),
+('PRD00007', 'Semangka Madu', '12000', 'Kg', '60', '1684670960.semangka_kuning.jpg', 'IDJP001'),
+('PRD00008', 'Selai Stroberi', '20000', 'Jar', '60', '1684672042.selaistrowberi.jpg', 'IDJP002'),
+('PRD00009', 'Keripik Pisang', '10000', 'Pack', '60', '1684672134.keripik pisang.jpeg', 'IDJP002'),
+('PRD00010', 'Manisan Mangga Kering', '25000', 'Pack', '60', '1684672162.manisan mangga kering.jpg', 'IDJP002');
 
 -- --------------------------------------------------------
 
@@ -224,7 +241,6 @@ INSERT INTO `status_pemesanan` (`id_status_pemesanan`, `nama_status_pemesanan`) 
 (1, 'Pembayaran Diverifikasi'),
 (2, 'Barang Sedang Diproses'),
 (3, 'Barang Dikirim'),
-(4, 'Pesanan Telah Diterima'),
 (5, 'Pesanan Selesai'),
 (6, 'Barang Habis'),
 (7, 'Pembayaran Ditolak'),

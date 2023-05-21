@@ -8,8 +8,8 @@ use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\JenisProdukController;
 use App\Http\Controllers\PemesananController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProdukController;
-use App\Models\Pemesanan;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,9 +55,7 @@ Route::delete('/jenisproduk/hapus/{id_jenis_produk}', [JenisProdukController::cl
 
 // Route untuk tampilan View Admin
 Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
-    Route::get('dashboard', function () {
-        return view('admin.dashboard');
-    })->name('dashboard');
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::get('product-management', function () {
         return view('admin.product-management');
