@@ -20,8 +20,8 @@ use App\Http\Controllers\SettingsController;
 
 // Membuat dan Menampilkan rute view
 Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+    return view('landingpage');
+})->name('landingpage');
 
 // Mendapatkan rute fungsi query
 Route::get('/login', [AuthController::class, 'LoginPage'])->name('login');
