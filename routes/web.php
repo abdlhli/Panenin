@@ -24,8 +24,8 @@ use App\Http\Controllers\ProdukController;
 
 // Membuat dan Menampilkan route view landing page
 Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+    return view('landingpage');
+})->name('landingpage');
 
 // Route untuk Login dan logout
 Route::get('/login', [AuthController::class, 'LoginPage'])->name('login');

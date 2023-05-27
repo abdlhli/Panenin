@@ -26,6 +26,7 @@
         "jquery": "^3.6.4",
         "lightbox2": "^2.11.4",
         "popper.js": "^1.16.1",
+        "swiper": "^9.3.2",
         "toastr": "^2.1.4",
         "tw-elements": "^1.0.0-beta2"
     }
