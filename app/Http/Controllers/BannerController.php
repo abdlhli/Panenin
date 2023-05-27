@@ -11,7 +11,7 @@ class BannerController extends Controller
 {
     public function getAllBanner()
     {
-        $banner = Banner::all();
+        $banner = Banner::where('status', 'Aktif')->get();
 
         return response()->json(['data' => $banner], 200);
     }
