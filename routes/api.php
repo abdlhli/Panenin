@@ -28,6 +28,7 @@ Route::get('/banner', [BannerController::class, 'getAllBanner']);
 Route::get('/pemesanan', [PemesananController::class, 'getAllPemesanan']);
 Route::get('/pemesanan/{id}', [PemesananController::class, 'getPemesananByIdUser']);
 Route::get('/jenisproduk', [JenisProdukController::class, 'getAllJenisProduk']);
+Route::get('/produkterlaris', [ProdukController::class, 'getProdukTerlaris']);
 
 
 Route::post('/login', [AuthController::class, 'loginMobile']);

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Produk;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class ProdukController extends Controller
@@ -14,6 +15,20 @@ class ProdukController extends Controller
 
         return response()->json(['data' => $produk], 200);
     }
+
+    public function getProdukTerlaris()
+    {
+        $produkTerlaris = DB::table('detail_pemesanan')
+            ->join('produk', 'detail_pemesanan.id_produk', '=', 'produk.id_produk')
+            ->select('produk.id_produk', 'produk.foto_produk', DB::raw('SUM(detail_pemesanan.jumlah_produk) as total_jumlah'))
+            ->groupBy('produk.id_produk', 'produk.foto_produk')
+            ->orderByDesc('total_jumlah')
+            ->take(6)
+            ->get();
+
+        return response()->json(['data' => $produkTerlaris], 200);
+    }
+
 
     public function getProdukById($id)
     {
