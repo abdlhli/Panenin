@@ -39,4 +39,11 @@ class JenisProdukController extends Controller
         Session::flash('hapusJenisProduk', 'Jenis produk berhasil dihapus!');
         return redirect()->back();
     }
+
+    public function getAllJenisProduk()
+    {
+        $jenisproduk = JenisProduk::all();
+
+        return response()->json(['data' => $jenisproduk], 200);
+    }
 }

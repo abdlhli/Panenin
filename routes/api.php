@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\JenisProdukController;
 use App\Http\Controllers\PemesananController;
 
 /*
@@ -26,6 +27,8 @@ Route::get('/produk/{id}', [ProdukController::class, 'getProdukById']);
 Route::get('/banner', [BannerController::class, 'getAllBanner']);
 Route::get('/pemesanan', [PemesananController::class, 'getAllPemesanan']);
 Route::get('/pemesanan/{id}', [PemesananController::class, 'getPemesananByIdUser']);
+Route::get('/jenisproduk', [JenisProdukController::class, 'getAllJenisProduk']);
+
 
 Route::post('/login', [AuthController::class, 'loginMobile']);
 Route::post('/adduser', [UserController::class, 'addUser']);

@@ -87,6 +87,6 @@ class AuthController extends Controller
             return response()->json(['message' => 'Email atau Password yang diinputkan salah!'], 404);
         }
 
-        return response()->json(['data' => $akun, 'message' => 'Login Berhasil'], 200);
+        return response()->json(['data' => $akun, 'message' => 'Login Berhasil', 'code' => 200], 200);
     }
 }
