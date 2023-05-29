@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\TermsConditionController;
+use App\Http\Controllers\PrivacyPolicyController;
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\JenisProdukController;
@@ -27,8 +28,8 @@ use App\Models\Produk;
 
 // Membuat dan Menampilkan route view landing page
 Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+    return view('landingpage');
+})->name('landingpage');
 
 Route::get('/produk', function () {
     return view('produk');
@@ -101,3 +102,4 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
 });
 
 Route::get('/termscondition', [TermsConditionController::class, 'bodrex'])->name('termscondition');
+Route::get('/privacypolicy', [PrivacyPolicyController::class, 'trex'])->name('privacypolicy');
