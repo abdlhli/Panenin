@@ -10,6 +10,7 @@ use App\Http\Controllers\JenisProdukController;
 use App\Http\Controllers\PemesananController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProdukController;
+use App\Models\Produk;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,13 @@ use App\Http\Controllers\ProdukController;
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
+
+Route::get('/produk', function () {
+    return view('produk');
+})->name('produk');
+
+Route::get('/produk', [ProdukController::class, 'getAllProdukForProdukList'])->name('produk');
+
 
 // Route untuk Login dan logout
 Route::get('/login', [AuthController::class, 'LoginPage'])->name('login');
