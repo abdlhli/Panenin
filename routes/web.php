@@ -9,6 +9,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\JenisProdukController;
 use App\Http\Controllers\PemesananController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\ProdukController;
 use App\Models\Produk;
 
@@ -25,13 +26,14 @@ use App\Models\Produk;
 
 // Membuat dan Menampilkan route view landing page
 Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+    return view('landingpage');
+})->name('landingpage');
 
 Route::get('/produk', function () {
     return view('produk');
 })->name('produk');
 
+Route::get('/', [LandingPageController::class, 'index'])->name('landing');
 Route::get('/produk', [ProdukController::class, 'getAllProdukForProdukList'])->name('produk');
 
 

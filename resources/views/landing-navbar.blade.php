@@ -14,12 +14,12 @@
                 </a>
             </div>
             <div class="flex items-center space-x-between">
-                <a href="#"
+                <a href="#about"
                     class="text-gray-800 dark:text-white hover:text-gray-600 dark:hover:text-gray-400 px-3 py-2 text-sm font-medium">About
                     Us</a>
-                <a href="#"
+                <a href="#news"
                     class="text-gray-800 dark:text-white hover:text-gray-600 dark:hover:text-gray-400 px-3 py-2 text-sm font-medium">News</a>
-                <a href="#"
+                <a href="#contact"
                     class="text-gray-800 dark:text-white hover:text-gray-600 dark:hover:text-gray-400 px-3 py-2 text-sm font-medium">Contact</a>
                 <a href="/login"
                     class="ml-4 text-gray-800 dark:text-white hover:text-gray-600 dark:hover:text-gray-400 p-1">
