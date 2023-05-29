@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Akun;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
@@ -53,6 +54,7 @@ class AuthController extends Controller
         }
 
         Auth::login($akun);
+        Session::flash('berhasilLogin', 'Login Berhasil!');
         return redirect()->route('admin.dashboard');
     }
 
@@ -64,6 +66,27 @@ class AuthController extends Controller
 
         $request->session()->regenerateToken();
 
+        Session::flash('logout', 'Logout Berhasil!');
         return redirect('/login');
+    }
+
+    public function loginMobile(Request $request)
+    {
+        $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+
+        $akun = Akun::where('email', $request->email)->first();
+
+        if (!$akun) {
+            return response()->json(['message' => 'Akun tidak terdaftar!'], 404);
+        }
+
+        if (!Hash::check($request->password, $akun->password)) {
+            return response()->json(['message' => 'Email atau Password yang diinputkan salah!'], 404);
+        }
+
+        return response()->json(['data' => $akun, 'message' => 'Login Berhasil', 'code' => 200], 200);
     }
 }

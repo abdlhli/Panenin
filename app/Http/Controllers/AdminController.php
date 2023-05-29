@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Akun;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class AdminController extends Controller
 {
@@ -13,10 +14,10 @@ class AdminController extends Controller
         $validatedData = $request->validate([
             'firstname' => 'required|string|max:255',
             'lastname' => 'required|string|max:255',
-            'email' => 'required|string|max:255|unique:users',
+            'email' => 'required|string|max:255|unique:akun',
             'password' => 'required|string|min:8',
-            'alamat' => 'required|string|max:255',
-            'no_telp' => 'required|string|max:255',
+            'alamat' => 'nullable|string|max:255',
+            'no_telp' => 'nullable|string|max:255',
             'id_hak_akses' => 'required'
         ]);
 
@@ -29,10 +30,12 @@ class AdminController extends Controller
             'alamat' => $validatedData['alamat'],
             'no_telp' => $validatedData['no_telp'],
             'id_hak_akses' => $validatedData['id_hak_akses'],
+            'foto_profile' => 'defaultprofile.png'
         ]);
 
         // redirect ke halaman setelah berhasil login
-        return redirect()->back()->with('success', 'Data berhasil disimpan!');
+        Session::flash('tambahAdmin', 'Akun berhasil ditambahkan!');
+        return redirect()->back();
     }
 
     public function update(Request $request, $id)
@@ -40,13 +43,8 @@ class AdminController extends Controller
 
         // validasi data
         $validatedData = $request->validate([
-            'firstname' => 'required|string|max:255',
-            'lastname' => 'required|string|max:255',
-            'email' => 'required|string|max:255',
             'password' => 'nullable|string|min:8',
-            'alamat' => 'required|string|max:255',
-            'no_telp' => 'required|string|max:255',
-            'id_hak_akses' => 'required'
+            'id_hak_akses' => 'required|int'
         ]);
 
         // ambil data user berdasarkan id
@@ -54,11 +52,6 @@ class AdminController extends Controller
 
         // update data user
         $user->update([
-            'firstname' => $validatedData['firstname'],
-            'lastname' => $validatedData['lastname'],
-            'email' => $validatedData['email'],
-            'alamat' => $validatedData['alamat'],
-            'no_telp' => $validatedData['no_telp'],
             'id_hak_akses' => $validatedData['id_hak_akses'],
         ]);
 
@@ -67,10 +60,14 @@ class AdminController extends Controller
             $user->update([
                 'password' => bcrypt($validatedData['password'])
             ]);
+            $user->save();
         }
 
+        $user->save();
+
         // redirect ke halaman setelah berhasil update
-        return redirect()->back()->with('success', 'Data berhasil diupdate!');
+        Session::flash('updateAdmin', 'Akun berhasil diupdate!');
+        return redirect()->back();
     }
 
     public function hapus($id)
@@ -78,6 +75,7 @@ class AdminController extends Controller
         $data = Akun::find($id);
         $data->delete();
 
-        return redirect()->back()->with('success', 'Data berhasil dihapus');
+        Session::flash('hapusAdmin', 'Akun berhasil dihapus!');
+        return redirect()->back();
     }
 }
