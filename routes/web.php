@@ -12,6 +12,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\JenisProdukController;
 use App\Http\Controllers\PemesananController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\ProdukController;
 use App\Models\Produk;
 
@@ -35,6 +36,7 @@ Route::get('/produk', function () {
     return view('produk');
 })->name('produk');
 
+Route::get('/', [LandingPageController::class, 'index'])->name('landing');
 Route::get('/produk', [ProdukController::class, 'getAllProdukForProdukList'])->name('produk');
 
 
