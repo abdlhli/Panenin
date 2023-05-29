@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\TermsConditionController;
 
 
 /*
@@ -72,4 +73,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::get('settings', function () {
         return view('admin.settings');
     })->name('settings');
+
 });
+
+Route::get('/termscondition', [TermsConditionController::class, 'bodrex'])->name('termscondition');
