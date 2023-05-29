@@ -46,7 +46,7 @@
                         <img class="" src="/assets/images/logoPaneninPutih.png">
                     </div>
                 </div>
-                <div class="absolute top-0 left-0 z-10 select-none" onclick="location.href='{{ route('welcome') }}'">
+                <div class="absolute top-0 left-0 z-10 select-none" onclick="location.href='/'">
                     <img class=" w-9 h-9 mx-6 mt-6" src="/assets/icons/backdoor.png">
                     <p class="text-white flex justify-center text-base">Back</p>
                 </div>
