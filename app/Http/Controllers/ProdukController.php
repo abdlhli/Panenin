@@ -20,8 +20,8 @@ class ProdukController extends Controller
     {
         $produkTerlaris = DB::table('detail_pemesanan')
             ->join('produk', 'detail_pemesanan.id_produk', '=', 'produk.id_produk')
-            ->select('produk.id_produk', 'produk.foto_produk', DB::raw('SUM(detail_pemesanan.jumlah_produk) as total_jumlah'))
-            ->groupBy('produk.id_produk', 'produk.foto_produk')
+            ->select('produk.id_produk', 'produk.foto_produk', 'produk.nama_produk', 'produk.harga_produk', DB::raw('SUM(detail_pemesanan.jumlah_produk) as total_jumlah'))
+            ->groupBy('produk.id_produk', 'produk.foto_produk', 'produk.nama_produk', 'produk.harga_produk')
             ->orderByDesc('total_jumlah')
             ->take(6)
             ->get();
@@ -29,6 +29,15 @@ class ProdukController extends Controller
         return response()->json(['data' => $produkTerlaris], 200);
     }
 
+
+    public function getProdukByJenis($id_jenis_produk)
+    {
+        $produk = Produk::where('id_jenis_produk', $id_jenis_produk)
+            ->with('jenis_produk')
+            ->get();
+
+        return response()->json(['data' => $produk], 200);
+    }
 
     public function getProdukById($id)
     {

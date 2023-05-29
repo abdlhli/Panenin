@@ -82,10 +82,14 @@ class UserController extends Controller
             'password' => 'required|string|min:8'
         ]);
 
+        if (strlen($validatedData['password']) < 8) {
+            return response('Password Kurang dari 8', 400);
+        }
+
         $userExists = Akun::where('email', $validatedData['email'])->exists();
 
         if ($userExists) {
-            return response()->json(['message' => 'Email sudah terdaftar'], 400);
+            return response('Email sudah terdaftar', 400);
         }
 
         $user = new Akun();

@@ -48,8 +48,9 @@ class Akun extends Authenticatable
             } else { // Jika user yang akan disimpan adalah customer
                 $latestCustomer = static::where('id_user', 'like', 'PLG%')->orderBy('id_user', 'desc')->first();
                 $latestCustomerId = $latestCustomer ? intval(substr($latestCustomer->id_user, 3)) : 0;
-                $newCustomerId = str_pad($latestCustomerId + 1, 5, '0', STR_PAD_LEFT);
-                $model->id_user = 'PLG' . $newCustomerId;
+                $newCustomerId = $latestCustomerId + 1;
+                $formattedCustomerId = 'PLG' . str_pad($newCustomerId, 5, '0', STR_PAD_LEFT);
+                $model->id_user = $formattedCustomerId;
             }
         });
     }
