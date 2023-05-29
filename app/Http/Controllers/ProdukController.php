@@ -122,4 +122,11 @@ class ProdukController extends Controller
         Session::flash('hapusproduk', 'Produk berhasil dihapus!');
         return redirect()->back();
     }
+
+    public function getAllProdukForProdukList()
+    {
+        $produks = Produk::all();
+
+        return view('produk', compact('produks'));
+    }
 }
