@@ -93,36 +93,35 @@
     </section>
 
 
-    <section>
+    <section id="product">
+        <h2 class="mt-48 text-center text-xl font-bold">Product List</h2>
         <div class="flex justify-center overflow-x-scroll snap-x overflow-y-hidden">
             @foreach ($product as $produk)
-            <div
-                class="snap-end  w-96 h-56 bg-white border border-black rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mb-4 mx-6 mt-32 z-10">
-                <div class="flex flex-col items-center">
-                    <img class="h-24 w-img" src={{asset("assets/images/photoproduk/".$produk->foto_produk)}}>
-                    <h2 class="text-regular font-bold mt-2">{{$produk->harga_produk}}</h2>
-                    <h3 class="mt-2 text-sm">{{$produk->nama_produk}}</h3>
-                    <button
-                        class="mt-2 flex items-center border-2-white-600 hover:bg-gray-100 text-gray-500 hover:text-green-800 font-semibold py-1 px-4 mx-1 border border-gray-300 rounded shadow text-xs">
-                        <span class="mx-2 px-2">Pesan sekarang</span>
-                    </button>
+                <div
+                    class="snap-end w-96 h-64 bg-white border border-black rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mb-4 mx-6 mt-32 z-10">
+                    <div class="flex flex-col items-center p-4">
+                        <img class="h-24 w-auto" src="{{ asset('assets/images/photoproduk/' . $produk->foto_produk) }}"
+                            alt="{{ $produk->nama_produk }}">
+                        <h2 class="text-regular font-bold mt-2">{{ $produk->harga_produk }}</h2>
+                        <h3 class="mt-2 text-sm text-center">{{ $produk->nama_produk }}</h3>
+                        <button
+                            class="mt-6 flex items-center border-white-600 hover:bg-gray-100 text-gray-500 hover:text-green-800 font-semibold py-1 px-4 mx-1 border border-gray-300 rounded shadow text-xs">
+                            <span>Pesan sekarang</span>
+                        </button>
+                    </div>
                 </div>
-            </div>
             @endforeach
         </div>
     </section>
 
-    <div class="flex justify-center">
+    <div class="flex justify-center mt-12">
         <button
-            class="mt-12 flex items-center border-2-white-600 hover:bg-gray-100 text-gray-500 hover:text-green-800 font-semibold py-1 px-4 mx-1 border border-gray-300 rounded shadow">
+            class="flex items-center border-white-600 hover:bg-gray-100 text-gray-500 hover:text-green-800 font-semibold py-1 px-4 mx-1 border border-gray-300 rounded shadow">
             <span class="mx-1 pr-2">Produk Lainnya</span>
         </button>
     </div>
 
-
-
-
-    <section>
+    <section id="contact">
         <div class="flex justify-center">
             <div
                 class="w-103 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mb-4 mx-6 mt-32 z-10 py-4 px-8">
@@ -151,7 +150,7 @@
             </div>
     </section>
 
-    <section>
+    <section id="downloadapps">
         <div class="flex  w-full">
             <div
                 class="grid grid-cols-2 w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mb-4 mt-32 z-10 py-4 ">
@@ -175,7 +174,8 @@
                 </div>
                 <div>
                     <div class="flex justify-center">
-                        <img class="w-96 h-auto" src="{{ url('/assets/images/imgPhone.png') }}" alt="Gambar Telepon">
+                        <img class="w-96 h-auto" src="{{ url('/assets/images/imgPhone.png') }}"
+                            alt="Gambar Telepon">
                     </div>
                 </div>
             </div>
@@ -196,7 +196,8 @@
                             and Condition</a>
                     </li>
                     <li>
-                        <a href="{{ route('privacypolicy') }}" class="mr-4 hover:underline md:mr-6 text-white">Privacy
+                        <a href="{{ route('privacypolicy') }}"
+                            class="mr-4 hover:underline md:mr-6 text-white">Privacy
                             Policy</a>
                     </li>
 

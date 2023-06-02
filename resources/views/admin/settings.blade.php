@@ -26,7 +26,7 @@
                         @csrf
                         <div
                             class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4 divide-y">
-                            <div class="w-full md:w-1/2">
+                            <div class=" md:w-1/2">
                                 <h3
                                     class="p-5 font-semibold text-lg text-left text-gray-900 bg-white dark:text-white dark:bg-gray-800">
                                     Akun Settings
@@ -36,7 +36,7 @@
                                 </h3>
                             </div>
                             <div
-                                class="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
+                                class=" md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
                                 <button type="submit"
                                     class="flex items-center justify-center text-white bg-green-900 hover:bg-green-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-primary-800">
                                     Simpan Perubahan

@@ -4,8 +4,8 @@
 
 <div class="mx-auto max-w-screen-xl px-4 lg:px-12">
     <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
-        <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
-            <div class="w-full md:w-1/2">
+        <div class="flex flex-col md:flex-row items-center justify-between p-4">
+            <div class=" md:w-1/2">
                 <form class="flex items-center">
                     <label for="simple-search" class="sr-only">Search</label>
                     <div class="relative w-full">
@@ -24,7 +24,7 @@
                 </form>
             </div>
             <div
-                class="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
+                class=" md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
                 @if (auth()->user()->id_hak_akses == 1)
                     <button type="button" data-modal-target="ModalTambahAkunAdmin"
                         data-modal-toggle="ModalTambahAkunAdmin"

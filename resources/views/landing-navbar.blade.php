@@ -4,7 +4,7 @@
             <div class="flex items-center space-x-between">
                 <a href="/produk"
                     class="text-gray-800 dark:text-white hover:text-gray-600 dark:hover:text-gray-400 px-3 py-2 text-sm font-medium">Products</a>
-                <a href="#"
+                <a href="#downloadapps"
                     class="text-gray-800 dark:text-white hover:text-gray-600 dark:hover:text-gray-400 px-3 py-2 text-sm font-medium">Download
                     Apps</a>
             </div>
