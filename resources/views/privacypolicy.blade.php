@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    <title> Panenin - Privacy Policy</title>
+    <title>Panenin - Privacy Policy</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="@vite(['resources/css/app.css', 'resources/js/app.js'])">
